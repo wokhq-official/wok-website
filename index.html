@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wok</title>
+
+    <!-- Vuetify CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/vuetify@3.7.4/dist/vuetify.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Material Design Icons (required by Vuetify) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Main.css -->
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <div id="app">
+      <v-app>
+        <v-app-bar class="navbar px-4 px-sm-8" flat color="#fff">
+          <template #prepend>
+            <img
+              class="brand_logo"
+              src="/assets/wok-logo-dark.svg"
+              alt="Logo"
+            />
+          </template>
+
+          <div class="d-none d-sm-none d-md-flex">
+            <div class="d-flex justify-center flex-grow-1 gap-6">
+              <router-link class="nav_link" to="">About Us</router-link>
+              <router-link class="nav_link" to="">How it Works</router-link>
+              <router-link class="nav_link" to="">Pricing</router-link>
+              <router-link class="nav_link" to="">FAQ</router-link>
+            </div>
+          </div>
+
+          <template #append>
+            <v-btn class="text-capitalize d-none d-sm-none d-md-flex">
+              Sign In
+            </v-btn>
+            <v-btn
+              color="#d7263d"
+              variant="flat"
+              class="text-capitalize d-none d-sm-none d-md-flex"
+            >
+              Register
+            </v-btn>
+            <v-btn
+              class="ms-2 d-flex d-sm-flex d-md-none"
+              icon
+              size="48"
+              style="background-color: #d7263d"
+              @click.stop="drawer = !drawer"
+            >
+              <v-icon color="#ffffff" style="font-size: 20px">mdi-menu</v-icon>
+            </v-btn>
+          </template>
+        </v-app-bar>
+
+        <v-navigation-drawer v-model="drawer" temporary>
+          <v-list density="compact" nav>
+            <v-list-item class="sidebar-link" title="Home"></v-list-item>
+            <v-list-item class="sidebar-link" title="About Us"></v-list-item>
+            <v-list-item
+              class="sidebar-link"
+              title="How it Works"
+            ></v-list-item>
+            <v-list-item class="sidebar-link" title="Pricing"></v-list-item>
+            <v-list-item class="sidebar-link" title="FAQ"></v-list-item>
+            <v-list-item
+              class="sidebar-link-style"
+              title="Sign In"
+            ></v-list-item>
+            <v-list-item
+              class="sidebar-link-style"
+              title="Get Started"
+            ></v-list-item>
+          </v-list>
+        </v-navigation-drawer>
+
+        <v-main>
+          <v-container fluid id="hero_section">
+            <v-row class="px-1 px-sm-4">
+              <v-col cols="12" lg="7">
+                <div class="subtle_bg chip_ratings">
+                  <img src="/assets/trust-rating.svg" alt="Trust Rating" />
+                  90% user trust rating
+                </div>
+                <h1 class="title">
+                  Skill-First Hiring. Built for Trust. Powered by Human-Led AI.
+                </h1>
+                <p class="subtitle">
+                  WOK helps employers hire based on proven skills — not resumes,
+                  bias, or guesswork — while giving talent a transparent, fair
+                  hiring experience.
+                </p>
+                <div class="hero_btns">
+                  <v-btn
+                    color="#d7263d"
+                    size="large"
+                    variant="flat"
+                    class="text-capitalize mb-2 me-2 w-100 w-sm-auto"
+                    @click="dialog = true"
+                  >
+                    Get Early Access
+                    <iconify-icon
+                      icon="basil:arrow-right-outline"
+                      width="24"
+                      class="ms-2"
+                    ></iconify-icon>
+                  </v-btn>
+                  <v-btn
+                    color="#F8F8F8"
+                    size="large"
+                    variant="flat"
+                    class="text-capitalize mb-2 w-100 w-sm-auto"
+                  >
+                    <iconify-icon
+                      icon="basil:binocular-outline"
+                      width="24"
+                      class="me-2"
+                    ></iconify-icon>
+                    See How It Works
+                  </v-btn>
+                </div>
+                <div class="avatar_container">
+                  <div class="d-lg-flex align-center">
+                    <div class="d-flex" style="position: relative">
+                      <v-avatar size="60" color="#EDEDED" class="user-avatar">
+                        <img src="/assets/usr-1.jpg" />
+                      </v-avatar>
+                      <v-avatar size="60" color="#EDEDED" class="user-avatar">
+                        <img src="/assets/usr-2.jpg" />
+                      </v-avatar>
+                      <v-avatar size="60" color="#EDEDED" class="user-avatar">
+                        <img src="/assets/usr-3.jpg" />
+                      </v-avatar>
+                    </div>
+                    <div class="review_box">
+                      <p class="review_text">
+                        Early users report strong trust in WOK’s transparency
+                        and fairness
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="subtle_bg chip_review">
+                  <img
+                    class="chip_img"
+                    src="/assets/wok-logo-dark.svg"
+                    alt="wok logo"
+                  />
+                  We aims to 3× increase in visibility for qualified
+                  professionals
+                </div>
+              </v-col>
+              <v-col cols="12" lg="5" class="hero_img-wrapper">
+                <div class="tooltip_icon-container">
+                  <iconify-icon
+                    icon="basil:lightning-alt-solid"
+                    width="24"
+                    class="me-2 tooltip_icon"
+                  ></iconify-icon>
+                </div>
+                <div class="hero_tooltip-one">
+                  <h1 class="tooltip_figure">92%</h1>
+                  <p>AI Skill-Match Relevance</p>
+                </div>
+                <div class="hero_tooltip-two">
+                  <h1 class="tooltip_figure">70%</h1>
+                  <p>less resume screening required</p>
+                </div>
+                <div class="hero_tooltip-three">
+                  <h1 class="tooltip_figure">3X</h1>
+                  <p>higher visibility for qualified candidates</p>
+                </div>
+                <img
+                  class="hero_img"
+                  src="/assets/wok-hero-img.jpg"
+                  alt="Logo"
+                />
+              </v-col>
+            </v-row>
+          </v-container>
+          <v-container fluid id="about_section">
+            <v-row class="mx-1 mx-sm-4 about_container-bg">
+              <v-col cols="12" md="6" lg="6">
+                <h3 class="about_title">Hiring Is Broken, For Everyone</h3>
+                <p class="about_heading">
+                  Too many resumes. Too little signal.
+                </p>
+                <p class="about_subheading">
+                  Traditional hiring filters candidates by keywords and titles,
+                  not actual ability — leading to bad hires and missed talent.
+                </p>
+                <p class="about_heading">Great skills. Zero visibility.</p>
+                <p class="about_subheading">
+                  Qualified candidates are rejected by automated systems with no
+                  explanation or feedback.
+                </p>
+                <p class="about_subheading">
+                  Hiring today rewards presentation over performance. WOK
+                  changes that.
+                </p>
+              </v-col>
+              <v-col cols="12" md="6" lg="6" class="about_img-wrapper">
+                <div class="about_tooltip">
+                  <v-icon size="60" color="#ffffff" class="tooltip_icon-left"
+                    >mdi-arrow-u-right-top</v-icon
+                  >
+                  <v-icon size="60" color="#ffffff" class="tooltip_icon-right"
+                    >mdi-arrow-u-left-bottom</v-icon
+                  >
+                  <p>We are committed to changing it.</p>
+                </div>
+                <img
+                  class="about_img"
+                  src="/assets/wok-about-img.jpg"
+                  alt="Logo"
+                />
+              </v-col>
+            </v-row>
+          </v-container>
+          <v-container fluid id="feature_section">
+            <v-row class="mx-1 mx-sm-4">
+              <v-col class="px-0" cols="12" lg="6">
+                <h3 class="feature_title">What Is WOK?</h3>
+                <p class="feature_subheading">
+                  WOK is a skill-first hiring platform designed to make hiring
+                  fair, transparent, and explainable.
+                </p>
+                <p class="feature_subheading">
+                  AI supports the process, but humans stay in control of every
+                  hiring decision.
+                </p>
+                <div class="subtle_bg chip_feature">
+                  <iconify-icon
+                    icon="basil:checked-box-solid"
+                    width="24"
+                    class="feature_icon"
+                  ></iconify-icon>
+                  Verified skills
+                </div>
+                <div class="subtle_bg chip_feature">
+                  <iconify-icon
+                    icon="basil:university-solid"
+                    width="24"
+                    class="feature_icon"
+                  ></iconify-icon>
+                  Role relevance
+                </div>
+                <div class="subtle_bg chip_feature">
+                  <iconify-icon
+                    icon="basil:cancel-solid"
+                    width="24"
+                    class="feature_icon"
+                  ></iconify-icon>
+                  Clear success criteria
+                </div>
+                <p class="feature_heading">Why WOK Is Different</p>
+                <p class="feature_subheading">
+                  Designed for Better Hiring Decisions
+                </p>
+              </v-col>
+              <v-col class="px-0" cols="12" lg="6">
+                <div class="feature_container">
+                  <p class="detail_heading">Skill-First, Not Resume-First</p>
+                  <p class="detail_subheading">
+                    Candidates are matched based on real skills, not job titles
+                    or background noise.
+                  </p>
+                </div>
+                <div class="feature_container">
+                  <p class="detail_heading">Human-Led AI</p>
+                  <p class="detail_subheading">
+                    AI assists with analysis and matching — never final
+                    decisions.
+                  </p>
+                </div>
+                <div class="feature_container">
+                  <p class="detail_heading">Explainable Outcomes</p>
+                  <p class="detail_subheading">
+                    Every recommendation and decision can be reviewed and
+                    understood.
+                  </p>
+                </div>
+                <div class="feature_container">
+                  <p class="detail_heading">Audit-Ready Hiring</p>
+                  <p class="detail_subheading">
+                    Built for fairness, compliance, and accountability from day
+                    one.
+                  </p>
+                </div>
+              </v-col>
+            </v-row>
+          </v-container>
+          <v-container fluid class="px-0">
+            <v-row class="px-0">
+              <v-col class="pa-0" cols="12" md="6" lg="6">
+                <div class="platform_container-talent">
+                  <div class="platform_content-talent">
+                    <h3 class="platform_title">WOK For Talent</h3>
+                    <p class="platform_subheading">
+                      Stop being just another PDF in a pile. WOK prioritizes
+                      your actual abilities, connecting you directly to roles
+                      where you can thrive.
+                    </p>
+                  </div>
+
+                  <img
+                    class="talent_img"
+                    src="/assets/tanlent-role-img.png"
+                    alt="Logo"
+                  />
+                  <div class="role_breakdown">
+                    <p class="role_breakdown-item d-flex align-center">
+                      <iconify-icon
+                        icon="basil:lightning-alt-solid"
+                        width="24"
+                        class="me-2"
+                      ></iconify-icon>
+                      Create a skill-based profile
+                    </p>
+                    <p class="role_breakdown-item d-flex align-center">
+                      <iconify-icon
+                        icon="basil:lightning-alt-solid"
+                        width="24"
+                        class="me-2"
+                      ></iconify-icon>
+                      Get matched — not filtered out
+                    </p>
+                    <p class="role_breakdown-item d-flex align-center">
+                      <iconify-icon
+                        icon="basil:lightning-alt-solid"
+                        width="24"
+                        class="me-2"
+                      ></iconify-icon>
+                      Track your hiring progress
+                    </p>
+                    <p class="role_breakdown-item d-flex align-center">
+                      <iconify-icon
+                        icon="basil:lightning-alt-solid"
+                        width="24"
+                        class="me-2"
+                      ></iconify-icon>
+                      Access roles that fit
+                    </p>
+                  </div>
+                </div>
+              </v-col>
+              <v-col cols="12" md="6" lg="6" class="pa-0 d-flex d-md-none">
+                <div class="platform_mobile d-flex justify-start">
+                  <img
+                    class="google_tag"
+                    src="/assets/google-play-tag.png"
+                    alt="Logo"
+                  />
+                  <img
+                    class="apple_tag"
+                    src="/assets/app-store-tag.png"
+                    alt="Logo"
+                  />
+                </div>
+              </v-col>
+              <v-col cols="12" md="6" lg="6" class="pa-0">
+                <div class="platform_container-employer">
+                  <div class="platform_content-employer">
+                    <h3 class="platform_title">WOK For Employers</h3>
+                    <p class="platform_subheading">
+                      WOK replaces the "resume black hole" with a streamlined,
+                      skill-first ecosystem designed to get you the right
+                      talent, faster.
+                    </p>
+                  </div>
+
+                  <img
+                    class="employer_img"
+                    src="/assets/employer-role-img.png"
+                    alt="Logo"
+                  />
+                </div>
+              </v-col>
+              <v-col cols="12" md="6" lg="6" class="pa-0 d-none d-md-block">
+                <div class="platform_mobile d-flex justify-start">
+                  <img
+                    class="google_tag"
+                    src="/assets/google-play-tag.png"
+                    alt="Logo"
+                  />
+                  <img
+                    class="apple_tag"
+                    src="/assets/app-store-tag.png"
+                    alt="Logo"
+                  />
+                </div>
+              </v-col>
+              <v-col cols="12" md="6" lg="6" class="platform_employer-list">
+                <div class="d-flex justify-start">
+                  <p class="role_breakdown-item d-flex align-center">
+                    <iconify-icon
+                      icon="basil:lightning-alt-solid"
+                      width="24"
+                      class="me-2"
+                    ></iconify-icon>
+                    Define roles by skills
+                  </p>
+                  <p class="role_breakdown-item d-flex align-center">
+                    <iconify-icon
+                      icon="basil:lightning-alt-solid"
+                      width="24"
+                      class="me-2"
+                    ></iconify-icon>
+                    Get AI-assisted candidate matches
+                  </p>
+                </div>
+                <div class="d-flex justify-start">
+                  <p class="role_breakdown-item d-flex align-center">
+                    <iconify-icon
+                      icon="basil:lightning-alt-solid"
+                      width="24"
+                      class="me-2"
+                    ></iconify-icon>
+                    Evaluate with transparent stages
+                  </p>
+                  <p class="role_breakdown-item d-flex align-center">
+                    <iconify-icon
+                      icon="basil:lightning-alt-solid"
+                      width="24"
+                      class="me-2"
+                    ></iconify-icon>
+                    Hire with confidence
+                  </p>
+                </div>
+                <v-btn
+                  color="#FFCCD3"
+                  size="large"
+                  variant="flat"
+                  class="text-capitalize emp_btn"
+                >
+                  <span class="emp_btn-text">Get Early Access</span>
+                  <iconify-icon
+                    icon="basil:arrow-right-outline"
+                    width="24"
+                    class="ms-2 emp_btn-icon"
+                  ></iconify-icon>
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-container>
+          <v-container fluid id="faq_section">
+            <v-row class="mx-0 mx-sm-4">
+              <v-col cols="12">
+                <v-card max-width="700" class="mx-auto" flat>
+                  <div class="text-center">
+                    <h3 class="faq_title">Frequently Asked Questions</h3>
+                  </div>
+                  <div>
+                    <v-expansion-panels flat>
+                      <v-expansion-panel
+                        v-for="(item, i) in questions"
+                        :key="i"
+                        class="faq_plane"
+                        collapse-icon="mdi-minus"
+                        expand-icon="mdi-plus"
+                      >
+                        <v-expansion-panel-title
+                          collapse-icon="mdi-minus"
+                          expand-icon="mdi-plus"
+                        >
+                          {{ item.title }}
+                        </v-expansion-panel-title>
+                        <v-expansion-panel-text>
+                          <p class="faq_text">{{ item.text }}</p>
+                        </v-expansion-panel-text>
+                      </v-expansion-panel>
+                    </v-expansion-panels>
+                  </div>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
+          <v-container fluid id="stats_section">
+            <v-row class="mx-0 mx-sm-4 stats_container-bg">
+              <v-col cols="12" class="stats_wrapper">
+                <div class="stats_logo-container">
+                  <img
+                    class="stats_logo"
+                    src="/assets/wok-logo-accent.svg"
+                    alt="Logo"
+                  />
+                </div>
+                <p class="stats_text">
+                  Performance First. Our vision is a future where
+                  <span class="highlighted_left">who you know</span>
+                  is replaced by
+                  <span class="highlighted_right">what you know.</span>
+                  By centering transparency over opacity, we’re helping
+                  companies tap into a talent pool where skill-based hires are
+                  <span class="highlighted_left">92%</span>
+                  more effective at their jobs.
+                </p>
+              </v-col>
+            </v-row>
+          </v-container>
+          <v-container fluid id="summary_section">
+            <v-row class="mx-0 mx-sm-4">
+              <v-col cols="12">
+                <v-card max-width="700" class="mx-auto" flat>
+                  <div class="text-center">
+                    <h3 class="summary_title">
+                      Hire Faster
+                      <v-icon size="15" color="#d7263d">mdi-circle</v-icon>
+                      Hire Fairer
+                      <v-icon size="15" color="#d7263d">mdi-circle</v-icon>
+                      Hire Better
+                    </h3>
+                    <p class="summary_subtitle">
+                      Every recommendation and decision can be reviewed and
+                      understood.
+                    </p>
+                    <v-btn
+                      color="#d7263d"
+                      size="large"
+                      variant="flat"
+                      class="text-capitalize me-2 mb-2 w-100 w-sm-auto"
+                    >
+                      Get Early Access
+                      <iconify-icon
+                        icon="basil:arrow-right-outline"
+                        width="24"
+                        class="ms-2"
+                      ></iconify-icon>
+                    </v-btn>
+                    <v-btn
+                      color="#F8F8F8"
+                      size="large"
+                      variant="flat"
+                      class="text-capitalize mb-2 w-100 w-sm-auto"
+                    >
+                      <iconify-icon
+                        icon="basil:binocular-outline"
+                        width="24"
+                        class="me-2"
+                      ></iconify-icon>
+                      See How It Works
+                    </v-btn>
+                  </div>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-main>
+        <v-footer id="footer_section">
+          <v-container fluid>
+            <v-row>
+              <v-col
+                cols="12"
+                class="d-flex justify-space-between align-center"
+              >
+                <img
+                  class="brand_logo-footer"
+                  src="/assets/wok-logo-dark.svg"
+                  alt="Logo"
+                />
+                <p class="d-none d-sm-none d-md-flex">
+                  &copy; WOK. All rights reserved.
+                </p>
+                <div class="d-flex">
+                  <div class="media_container">
+                    <img
+                      class="media_logo"
+                      src="/assets/facebook-icon-wok.svg"
+                      alt="Logo"
+                    />
+                  </div>
+                  <div class="media_container">
+                    <img
+                      class="media_logo"
+                      src="/assets/linkedin-icon-wok.svg"
+                      alt="Logo"
+                    />
+                  </div>
+                  <div class="media_container">
+                    <img
+                      class="media_logo"
+                      src="/assets/twitter-logo-wok.svg"
+                      alt="Logo"
+                    />
+                  </div>
+                </div>
+              </v-col>
+              <v-col
+                cols="12"
+                class="d-flex d-sm-flex d-md-none justify-center"
+              >
+                <p>&copy; WOK. All rights reserved.</p>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-footer>
+
+        <!-- Waitlist Dialog -->
+        <v-dialog v-model="dialog" width="auto">
+          <v-card max-width="500" class="dialog_card">
+            <v-card-text class="waitlist_card">
+              <div class="text-center">
+                <!-- <img
+                  class="brand_logo-dialog"
+                  src="/assets/wok-logo-dark.svg"
+                  alt="Logo"
+                /> -->
+                <h3 class="waitlist_title">Early Access</h3>
+                <p class="waitlist_subtitle">
+                  WOK is the all-in-one solution for hiring teams to finally
+                  make data-driven decisions without the headache.
+                </p>
+
+                <!-- Email Input -->
+                <v-text-field
+                  v-model="waitlistEmail"
+                  label="Your Email"
+                  type="email"
+                  variant="solo-filled"
+                  variant="outlined"
+                  density="comfortable"
+                  flat
+                  :disabled="waitlistLoading"
+                  :error-messages="waitlistError"
+                  placeholder="you@example.com"
+                  class="mt-4 waitlist_input"
+                ></v-text-field>
+                <v-btn
+                  color="#D7263D"
+                  size="large"
+                  variant="flat"
+                  class="text-capitalize"
+                  block
+                  :loading="waitlistLoading"
+                  :disabled="waitlistLoading || waitlistSuccess"
+                  @click="submitWaitlist"
+                >
+                  Join Now
+                </v-btn>
+              </div>
+              <div class="d-flex justify-center">
+                <div class="avatar_container-dialog">
+                  <div class="d-lg-flex align-center">
+                    <div class="d-flex" style="position: relative">
+                      <v-avatar
+                        size="30"
+                        color="#EDEDED"
+                        class="user-avatar-dialog"
+                      >
+                        <img src="/assets/usr-1.jpg" />
+                      </v-avatar>
+                      <v-avatar
+                        size="30"
+                        color="#EDEDED"
+                        class="user-avatar-dialog"
+                      >
+                        <img src="/assets/usr-2.jpg" />
+                      </v-avatar>
+                      <v-avatar
+                        size="30"
+                        color="#EDEDED"
+                        class="user-avatar-dialog"
+                      >
+                        <img src="/assets/usr-3.jpg" />
+                      </v-avatar>
+                    </div>
+                    <div class="review_box-dialog">
+                      <p class="review_text-dialog">
+                        Trusted by 300+ early adopters
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Success Message -->
+              <v-alert
+                v-if="waitlistSuccess"
+                type="success"
+                class="mt-2"
+                density="compact"
+              >
+                You're on the list! We'll be in touch soon.
+              </v-alert>
+            </v-card-text>
+          </v-card>
+        </v-dialog>
+      </v-app>
+    </div>
+
+    <!-- Vue 3 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.5.13/dist/vue.global.prod.js"></script>
+
+    <!-- Vuetify JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@3.7.4/dist/vuetify.min.js"></script>
+
+    <!-- Iconify (includes Basil icon set) -->
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.3.0/dist/iconify-icon.min.js"></script>
+
+    <script>
+      const { createApp, ref, watch } = Vue;
+      const { createVuetify } = Vuetify;
+
+      const vuetify = createVuetify({
+        theme: {
+          defaultTheme: "light",
+          themes: {
+            light: {
+              colors: {
+                primary: "#1976D2",
+                secondary: "#424242",
+              },
+            },
+          },
+        },
+      });
+
+      const app = createApp({
+        setup() {
+          const name = ref("World");
+          const loading = ref(false);
+          const result = ref("");
+          const drawer = ref(null);
+          const dialog = ref(false);
+
+          // --- Waitlist state ---
+          const waitlistEmail = ref("");
+          const waitlistLoading = ref(false);
+          const waitlistError = ref("");
+          const waitlistSuccess = ref(false);
+
+          const questions = ref([
+            {
+              title: "What makes WOK different?",
+              text: "WOK focuses on skills, transparency, and explainable decisions — not resumes or keywords.",
+            },
+            {
+              title: "Does AI make hiring decisions?",
+              text: "WOK focuses on skills and potential rather than just resumes, providing a more holistic view of candidates.",
+            },
+            {
+              title: "Is WOK only for full-time jobs?",
+              text: "WOK focuses on skills and potential rather than just resumes, providing a more holistic view of candidates.",
+            },
+            {
+              title: "How are skills validated?",
+              text: "WOK focuses on skills and potential rather than just resumes, providing a more holistic view of candidates.",
+            },
+            {
+              title: "Is my data secure?",
+              text: "WOK focuses on skills and potential rather than just resumes, providing a more holistic view of candidates.",
+            },
+          ]);
+
+          // Reset waitlist state when dialog closes
+          watch(dialog, (val) => {
+            if (!val) {
+              waitlistEmail.value = "";
+              waitlistError.value = "";
+              waitlistSuccess.value = false;
+            }
+          });
+
+          async function fetchData() {
+            loading.value = true;
+            result.value = "";
+            try {
+              const response = await fetch(
+                "https://jsonplaceholder.typicode.com/todos/1",
+              );
+              const data = await response.json();
+              result.value = `Fetched: "${data.title}"`;
+            } catch (error) {
+              result.value = "Error: " + error.message;
+            } finally {
+              loading.value = false;
+            }
+          }
+
+          // --- Waitlist submission ---
+          async function submitWaitlist() {
+            waitlistError.value = "";
+
+            if (!waitlistEmail.value || !waitlistEmail.value.includes("@")) {
+              waitlistError.value = "Please enter a valid email address.";
+              return;
+            }
+
+            waitlistLoading.value = true;
+
+            try {
+              const response = await fetch("https://your-api.com/waitlist", {
+                // 🔁 Replace with your endpoint
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email: waitlistEmail.value }),
+              });
+
+              if (!response.ok)
+                throw new Error(`Server error: ${response.status}`);
+
+              waitlistSuccess.value = true;
+              setTimeout(() => {
+                dialog.value = false;
+              }, 2000);
+            } catch (error) {
+              waitlistError.value = "Something went wrong. Please try again.";
+            } finally {
+              waitlistLoading.value = false;
+            }
+          }
+
+          return {
+            name,
+            loading,
+            result,
+            drawer,
+            dialog,
+            questions,
+            fetchData,
+            // Waitlist
+            waitlistEmail,
+            waitlistLoading,
+            waitlistError,
+            waitlistSuccess,
+            submitWaitlist,
+          };
+        },
+      });
+
+      app.use(vuetify);
+      app.mount("#app");
+    </script>
+  </body>
+</html>
