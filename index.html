@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wok</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
 
     <!-- Vuetify CSS -->
     <link
@@ -34,20 +35,33 @@
 
           <div class="d-none d-sm-none d-md-flex">
             <div class="d-flex justify-center flex-grow-1 gap-6">
-              <router-link class="nav_link" to="">About Us</router-link>
-              <router-link class="nav_link" to="">How it Works</router-link>
+              <router-link
+                class="nav_link"
+                @click.prevent="scrollTo('about_section')"
+                >About Us</router-link
+              >
+              <router-link
+                class="nav_link"
+                @click.prevent="scrollTo('feature_section')"
+                >How it Works</router-link
+              >
               <router-link class="nav_link" to="">Pricing</router-link>
-              <router-link class="nav_link" to="">FAQ</router-link>
+              <router-link
+                class="nav_link"
+                @click.prevent="scrollTo('faq_section')"
+                >FAQ</router-link
+              >
             </div>
           </div>
 
           <template #append>
-            <v-btn class="text-capitalize d-none d-sm-none d-md-flex">
+            <v-btn disabled class="text-capitalize d-none d-sm-none d-md-flex">
               Sign In
             </v-btn>
             <v-btn
               color="#d7263d"
               variant="flat"
+              disabled
               class="text-capitalize d-none d-sm-none d-md-flex"
             >
               Register
@@ -67,18 +81,33 @@
         <v-navigation-drawer v-model="drawer" temporary>
           <v-list density="compact" nav>
             <v-list-item class="sidebar-link" title="Home"></v-list-item>
-            <v-list-item class="sidebar-link" title="About Us"></v-list-item>
+            <v-list-item
+              class="sidebar-link"
+              title="About Us"
+              @click.prevent="scrollTo('about_section')"
+            ></v-list-item>
             <v-list-item
               class="sidebar-link"
               title="How it Works"
+              @click.prevent="scrollTo('feature_section')"
             ></v-list-item>
-            <v-list-item class="sidebar-link" title="Pricing"></v-list-item>
-            <v-list-item class="sidebar-link" title="FAQ"></v-list-item>
             <v-list-item
+              disabled
+              class="sidebar-link"
+              title="Pricing"
+            ></v-list-item>
+            <v-list-item
+              class="sidebar-link"
+              title="FAQ"
+              @click.prevent="scrollTo('faq_section')"
+            ></v-list-item>
+            <v-list-item
+              disabled
               class="sidebar-link-style"
               title="Sign In"
             ></v-list-item>
             <v-list-item
+              disabled
               class="sidebar-link-style"
               title="Get Started"
             ></v-list-item>
@@ -121,6 +150,7 @@
                     size="large"
                     variant="flat"
                     class="text-capitalize mb-2 w-100 w-sm-auto"
+                    @click.prevent="scrollTo('feature_section')"
                   >
                     <iconify-icon
                       icon="basil:binocular-outline"
@@ -443,6 +473,7 @@
                   size="large"
                   variant="flat"
                   class="text-capitalize emp_btn"
+                  @click="dialog = true"
                 >
                   <span class="emp_btn-text">Get Early Access</span>
                   <iconify-icon
@@ -530,6 +561,7 @@
                       size="large"
                       variant="flat"
                       class="text-capitalize me-2 mb-2 w-100 w-sm-auto"
+                      @click="dialog = true"
                     >
                       Get Early Access
                       <iconify-icon
@@ -543,6 +575,7 @@
                       size="large"
                       variant="flat"
                       class="text-capitalize mb-2 w-100 w-sm-auto"
+                      @click.prevent="scrollTo('feature_section')"
                     >
                       <iconify-icon
                         icon="basil:binocular-outline"
@@ -651,35 +684,33 @@
               </div>
               <div class="d-flex justify-center">
                 <div class="avatar_container-dialog">
-                  <div class="d-lg-flex align-center">
-                    <div class="d-flex" style="position: relative">
-                      <v-avatar
-                        size="30"
-                        color="#EDEDED"
-                        class="user-avatar-dialog"
-                      >
-                        <img src="/assets/usr-1.jpg" />
-                      </v-avatar>
-                      <v-avatar
-                        size="30"
-                        color="#EDEDED"
-                        class="user-avatar-dialog"
-                      >
-                        <img src="/assets/usr-2.jpg" />
-                      </v-avatar>
-                      <v-avatar
-                        size="30"
-                        color="#EDEDED"
-                        class="user-avatar-dialog"
-                      >
-                        <img src="/assets/usr-3.jpg" />
-                      </v-avatar>
-                    </div>
-                    <div class="review_box-dialog">
-                      <p class="review_text-dialog">
-                        Trusted by 300+ early adopters
-                      </p>
-                    </div>
+                  <div class="d-flex" style="position: relative">
+                    <v-avatar
+                      size="30"
+                      color="#EDEDED"
+                      class="user-avatar-dialog"
+                    >
+                      <img src="/assets/usr-1.jpg" />
+                    </v-avatar>
+                    <v-avatar
+                      size="30"
+                      color="#EDEDED"
+                      class="user-avatar-dialog"
+                    >
+                      <img src="/assets/usr-2.jpg" />
+                    </v-avatar>
+                    <v-avatar
+                      size="30"
+                      color="#EDEDED"
+                      class="user-avatar-dialog"
+                    >
+                      <img src="/assets/usr-3.jpg" />
+                    </v-avatar>
+                  </div>
+                  <div class="review_box-dialog">
+                    <p class="review_text-dialog">
+                      Trusted by 300+ early adopters
+                    </p>
                   </div>
                 </div>
               </div>
@@ -763,6 +794,13 @@
             },
           ]);
 
+          function scrollTo(id) {
+            const el = document.getElementById(id);
+            if (el) {
+              el.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          }
+
           // Reset waitlist state when dialog closes
           watch(dialog, (val) => {
             if (!val) {
@@ -828,6 +866,7 @@
             drawer,
             dialog,
             questions,
+            scrollTo,
             fetchData,
             // Waitlist
             waitlistEmail,
