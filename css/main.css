@@ -49,6 +49,9 @@
   --space-16: 4rem; /* 64px */
   --space-20: 5rem; /* 80px */
   --space-24: 6rem; /* 96px */
+  --space-28: 7rem; /* 112px */
+  --space-32: 8rem; /* 128px */
+  --space-42: 10rem; /* 160px */
 
   /* --- Layout --- */
   --container-sm: 640px;
@@ -68,7 +71,7 @@
   /* --- Colors (override with your brand palette) --- */
   --color-primary: #d7263d;
   --color-primary-dark: #a00e21;
-  --color-primary-light: #fadee1;
+  --color-primary-light: #ffccd3;
   --color-secondary: #083553;
   --color-accent: #d8efff;
 
@@ -282,7 +285,7 @@ i {
    HERO SECTION
    ============================================================ */
 #hero_section {
-  margin-bottom: var(--space-24);
+  margin-bottom: var(--space-16);
 }
 .subtle_bg {
   background-color: var(--color-bg-subtle);
@@ -342,14 +345,32 @@ i {
   margin-top: var(--space-16);
 }
 
-.hero_img {
+/* Slideshow container — holds dimensions previously on .hero_img */
+.hero_img-slideshow {
+  position: relative;
   width: 100%;
   max-width: 417.55px;
-  height: auto;
   aspect-ratio: 417.55 / 487;
+  margin: 0 auto;
+}
+
+/* All images stack absolutely inside the slideshow */
+.hero_img {
+  width: 100%;
+  height: 100%;
   border-radius: 20px;
   display: block;
-  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* The visible/active image */
+.hero_img.active {
+  opacity: 1;
 }
 
 .tooltip_icon-container {
@@ -431,7 +452,7 @@ i {
   margin-top: var(--space-4);
 }
 
-/* Tablet: scale down tooltip text and tighten positions */
+/* RESPONSIVE — Tablet */
 @media (max-width: 768px) {
   .hero_tooltip-one,
   .hero_tooltip-two,
@@ -451,7 +472,7 @@ i {
   }
 }
 
-/* Mobile: pull tooltips out of absolute, stack below image */
+/* RESPONSIVE — Mobile */
 @media (max-width: 480px) {
   .hero_img-wrapper {
     display: flex;
@@ -460,7 +481,6 @@ i {
   }
 
   .tooltip_icon-container {
-    /* hide or reposition the floating icon on mobile */
     display: none;
   }
 
@@ -471,6 +491,7 @@ i {
     max-width: 150px;
     margin-top: 10px;
   }
+
   .hero_tooltip-one {
     position: absolute;
     top: 0%;
@@ -481,6 +502,7 @@ i {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
   }
+
   .hero_tooltip-two {
     position: absolute;
     top: 60%;
@@ -491,6 +513,7 @@ i {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
   }
+
   .hero_tooltip-three {
     position: absolute;
     top: 90%;
@@ -502,6 +525,8 @@ i {
     border-bottom-right-radius: 10px;
   }
 }
+
+/*  RESPONSIVE — 960px  */
 @media (max-width: 960px) {
   .chip_ratings {
     display: inline-flex;
@@ -513,9 +538,11 @@ i {
     margin-top: var(--space-4);
     margin-bottom: var(--space-4);
   }
+
   .avatar_container {
     margin-bottom: var(--space-4);
   }
+
   .chip_review {
     display: block;
     align-items: center;
@@ -525,6 +552,7 @@ i {
     border-radius: 0.5rem;
     margin-top: var(--space-4);
   }
+
   .chip_img {
     width: 40px;
     height: auto;
@@ -535,8 +563,8 @@ i {
    ABOUT SECTION
    ============================================================ */
 #about_section {
-  margin-top: var(--space-16);
-  margin-bottom: var(--space-16);
+  padding-top: var(--space-32);
+  margin-bottom: var(--space-2);
 }
 .about_container-bg {
   background-color: var(--color-accent);
@@ -544,7 +572,7 @@ i {
   border-radius: 20px;
 }
 .about_title {
-  font-weight: 300;
+  font-weight: 400;
   width: 20rem;
   margin-bottom: var(--space-8);
 }
@@ -633,11 +661,11 @@ i {
    FEATURE SECTION
    ============================================================ */
 #feature_section {
-  margin-top: var(--space-16);
+  padding-top: var(--space-32);
   margin-bottom: var(--space-16);
 }
 .feature_title {
-  font-weight: 300;
+  font-weight: 400;
   width: 20rem;
   margin-bottom: var(--space-8);
 }
@@ -666,16 +694,28 @@ i {
   background-color: var(--color-bg-subtle);
   border-radius: 0.5rem;
   padding: var(--space-4);
+  padding-left: calc(var(--space-4) + 24px + var(--space-3));
   margin-bottom: var(--space-4);
+  position: relative;
 }
 .detail_heading {
   font-weight: 600;
   margin-bottom: var(--space-1);
 }
+.feature_number-icon {
+  position: absolute;
+  top: 50%;
+  left: var(--space-4);
+  transform: translateY(-50%);
+  opacity: 0.85;
+}
 /* ============================================================
    PLATFORM SECTION
    ============================================================ */
-
+#platform_section {
+  padding-top: var(--space-32);
+  margin-bottom: var(--space-16);
+}
 .platform_container-talent {
   background-color: var(--color-primary);
   position: relative;
@@ -720,7 +760,7 @@ i {
 }
 
 .platform_title {
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: var(--space-4);
 }
 
@@ -774,7 +814,7 @@ i {
 
 /* App store tags */
 .platform_mobile {
-  background-color: #ffccd3;
+  background-color: var(--color-primary-light);
   padding: var(--space-8);
   display: flex;
   flex-wrap: wrap; /* wrap tags on very small screens */
@@ -910,14 +950,14 @@ i {
    FAQ SECTION
    ============================================================ */
 #faq_section {
-  margin-top: var(--space-16);
-  margin-bottom: var(--space-24);
+  padding-top: var(--space-32);
+  margin-bottom: var(--space-16);
 }
 .faq_title {
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: var(--space-8);
 }
-.faq_plane {
+.faq_panel {
   border-bottom: 1px solid var(--color-border);
   border-radius: 0;
 }
@@ -938,7 +978,7 @@ i {
 }
 .stats_text {
   font-size: clamp(var(--text-xl), 3vw, var(--text-3xl));
-  font-weight: 200;
+  font-weight: 150;
   color: var(--color-text-inverse);
 }
 .highlighted_left {
@@ -998,7 +1038,7 @@ i {
   margin-bottom: var(--space-16);
 }
 .summary_title {
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: var(--space-4);
 }
 .summary_subtitle {
@@ -1070,4 +1110,89 @@ i {
   color: var(--color-text-inverse);
 }
 @media (max-width: 1300px) {
+}
+
+/* ============================================================
+   DARK THEME — CSS variable overrides
+   Applied when <html data-theme="dark"> is set via JS toggle.
+   All colours reference the same custom properties already used
+   throughout this file, so every element updates automatically.
+   ============================================================ */
+[data-theme="dark"] {
+  --color-bg: #0f0f1a;
+  --color-bg-subtle: #1a1a2e;
+  --color-surface: #1a1a2e;
+
+  --color-text: #f0f0f5;
+  --color-text-muted: #9ca3af;
+  --color-text-inverse: #ffffff;
+
+  --color-border: #2e2e45;
+  --color-border-strong: #4b5563;
+
+  --color-accent: #0d2a42;
+  --color-primary-light: #3a0a12;
+  --color-secondary: #1a4a6e;
+}
+
+/* Vuetify overrides — force key surfaces to follow our CSS vars */
+[data-theme="dark"] .v-application,
+[data-theme="dark"] .v-main,
+[data-theme="dark"] .v-app-bar,
+[data-theme="dark"] .v-navigation-drawer,
+[data-theme="dark"] .v-footer {
+  background-color: var(--color-bg) !important;
+  color: var(--color-text) !important;
+}
+
+[data-theme="dark"] .v-card {
+  background-color: var(--color-bg-subtle) !important;
+  color: var(--color-text) !important;
+}
+
+[data-theme="dark"] .v-expansion-panel,
+[data-theme="dark"] .v-expansion-panel-title,
+[data-theme="dark"] .v-expansion-panel-text {
+  background-color: var(--color-bg-subtle) !important;
+  color: var(--color-text) !important;
+}
+
+[data-theme="dark"] .v-list,
+[data-theme="dark"] .v-list-item {
+  background-color: var(--color-bg) !important;
+  color: var(--color-text) !important;
+}
+
+[data-theme="dark"] .summary_card {
+  background-color: var(--color-bg) !important;
+  color: var(--color-text) !important;
+}
+[data-theme="dark"] .v-card {
+  background-color: var(--color-bg) !important;
+  color: var(--color-text) !important;
+}
+[data-theme="dark"] .faq_title {
+  background-color: var(--color-bg) !important;
+}
+[data-theme="dark"] #faq_section > div > div > div {
+  background-color: var(--color-bg) !important;
+}
+[data-theme="dark"]
+  #faq_section
+  > div
+  > div
+  > div
+  > div.faq_expansion
+  > div
+  .v-expansion-panel-title {
+  background-color: var(--color-bg) !important;
+}
+[data-theme="dark"] .user-avatar {
+  margin-left: -10px;
+  border: 4px solid var(--color-bg) !important;
+  background-color: var(--color-bg) !important;
+}
+/* Invert social icons in dark mode */
+[data-theme="dark"] .media_logo {
+  filter: invert(1);
 }
