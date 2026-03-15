@@ -90,12 +90,12 @@
             <div class="d-flex justify-center flex-grow-1 gap-6">
               <router-link
                 class="nav_link"
-                @click.prevent="scrollTo('feature_section')"
+                @click.prevent="scrollTo('about_section')"
                 >About Us</router-link
               >
               <router-link
                 class="nav_link"
-                @click.prevent="scrollTo('platform_section')"
+                @click.prevent="scrollTo('howitworks_section')"
                 >How it Works</router-link
               >
               <router-link class="nav_link" to="">Pricing</router-link>
@@ -146,12 +146,12 @@
             <v-list-item
               class="sidebar-link"
               title="About Us"
-              @click.prevent="scrollTo('feature_section')"
+              @click.prevent="scrollTo('about_section')"
             ></v-list-item>
             <v-list-item
               class="sidebar-link"
               title="How it Works"
-              @click.prevent="scrollTo('platform_section')"
+              @click.prevent="scrollTo('howitworks_section')"
             ></v-list-item>
             <v-list-item
               disabled
@@ -295,7 +295,12 @@
           </v-container>
           <v-container fluid id="about_section">
             <v-row class="mx-1 mx-sm-4 about_container-bg">
-              <v-col cols="12" md="6" lg="6" class="about_img-wrapper">
+              <v-col
+                cols="12"
+                md="6"
+                lg="6"
+                class="about_img-wrapper order-2 order-md-1"
+              >
                 <!-- sr-about-tooltip: bounceIn from left -->
                 <div class="about_tooltip sr-about-tooltip">
                   <v-icon size="60" color="#ffffff" class="tooltip_icon-left"
@@ -312,7 +317,7 @@
                   alt="Logo"
                 />
               </v-col>
-              <v-col cols="12" md="6" lg="6">
+              <v-col cols="12" md="6" lg="6" class="order-1 order-md-2">
                 <h3 class="about_title">Hiring Is Broken, For Everyone</h3>
                 <p class="about_heading">
                   Too many resumes. Too little signal.
@@ -417,6 +422,94 @@
                   </p>
                 </div>
               </v-col>
+            </v-row>
+          </v-container>
+          <v-container fluid id="howitworks_section">
+            <v-row class="mx-1 mx-sm-4">
+              <v-col cols="12" class="text-center mb-8">
+                <h3 class="howitworks_title">How It Works</h3>
+                <p class="howitworks_subtitle">
+                  From sign up to hired in a few simple steps.
+                </p>
+              </v-col>
+            </v-row>
+            <v-row class="mx-1 mx-sm-4 howitworks_row">
+              <!-- Step 1 -->
+              <div class="howitworks_step">
+                <div class="howitworks_icon-circle">
+                  <iconify-icon
+                    icon="basil:user-plus-solid"
+                    width="28"
+                    style="color: #d7263d"
+                  ></iconify-icon>
+                </div>
+                <p class="howitworks_step-title">Sign Up</p>
+                <p class="howitworks_step-subtitle">
+                  Create your account and join the WOK platform in minutes.
+                </p>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="howitworks_step">
+                <div class="howitworks_icon-circle">
+                  <iconify-icon
+                    icon="basil:stack-solid"
+                    width="28"
+                    style="color: #d7263d"
+                  ></iconify-icon>
+                </div>
+                <p class="howitworks_step-title">Create Profile</p>
+                <p class="howitworks_step-subtitle">
+                  Build a skill-based profile that showcases what you can
+                  actually do.
+                </p>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="howitworks_step">
+                <div class="howitworks_icon-circle">
+                  <iconify-icon
+                    icon="basil:like-solid"
+                    width="28"
+                    style="color: #d7263d"
+                  ></iconify-icon>
+                </div>
+                <p class="howitworks_step-title">Get Matched</p>
+                <p class="howitworks_step-subtitle">
+                  Our AI surfaces roles where your skills are the right fit.
+                </p>
+              </div>
+
+              <!-- Step 4 -->
+              <div class="howitworks_step">
+                <div class="howitworks_icon-circle">
+                  <iconify-icon
+                    icon="basil:current-location-solid"
+                    width="28"
+                    style="color: #d7263d"
+                  ></iconify-icon>
+                </div>
+                <p class="howitworks_step-title">Apply & Track</p>
+                <p class="howitworks_step-subtitle">
+                  Apply easily and track your hiring progress every step of the
+                  way.
+                </p>
+              </div>
+
+              <!-- Step 5 -->
+              <div class="howitworks_step">
+                <div class="howitworks_icon-circle">
+                  <iconify-icon
+                    icon="basil:bag-solid"
+                    width="28"
+                    style="color: #d7263d"
+                  ></iconify-icon>
+                </div>
+                <p class="howitworks_step-title">Get Hired</p>
+                <p class="howitworks_step-subtitle">
+                  Land a role where your skills are recognised and valued.
+                </p>
+              </div>
             </v-row>
           </v-container>
           <v-container fluid id="platform_section" class="px-0">
@@ -871,24 +964,48 @@
 
           const questions = ref([
             {
-              title: "What makes WOK different?",
-              text: "WOK focuses on skills, transparency, and explainable decisions — not resumes or keywords.",
-            },
-            {
-              title: "Does AI make hiring decisions?",
-              text: "No. AI assists with analysis, but humans make all final decisions.",
+              title: "How is WOK different from other hiring platforms?",
+              text: "Unlike other platforms that rank candidates by resumes or keywords, WOK evaluates actual ability. Every job match is explainable and transparent.",
             },
             {
               title: "Is WOK only for full-time jobs?",
               text: "No. WOK supports full-time, contract, and freelance work.",
             },
             {
-              title: "How are skills validated?",
-              text: "Through assessments, work samples, and employer feedback.",
+              title: "How does WOK work for job seekers?",
+              text: "Candidates create a skill-based profile, get matched to relevant roles, track their hiring progress, and access jobs based on their abilities.",
+            },
+            {
+              title: "How does WOK verify the skills of job seekers?",
+              text: "WOK validates job seeker skills through practical assessments, work portfolios you submit, and feedback from employers you've worked with, so your profile reflects what you can actually do.",
+            },
+            {
+              title: "How does WOK work for employers?",
+              text: "Employers define roles by the skills required, get AI-matched candidates, evaluate them through transparent hiring stages, and make decisions with clear reasoning behind each recommendation. Employers can see why a candidate was matched; candidates can understand how their skills were evaluated.",
+            },
+            {
+              title: "Is WOK only for corporate or tech jobs?",
+              text: "Not at all. WOK is built for any role where skills can be defined — Technology, healthcare, legal, finance, engineering, creative arts, trade and artisan work, education, and more. If you have a skill, WOK has a place for you.",
+            },
+            {
+              title: "Does AI make hiring decisions?",
+              text: "No. WOK uses AI to assist with analysis and matching, but humans make every final hiring decision. No candidate is hired or rejected by an algorithm alone.",
+            },
+            {
+              title: "How accurate is the AI skill matching?",
+              text: "WOK reports a 92% AI skill-match relevance rate, with skill-based hires being 92% more effective than traditional hiring approaches.",
+            },
+            {
+              title: "Is WOK available as a mobile app?",
+              text: "Yes. WOK is available on both the Google Play Store and the Apple App Store for jobseekers, while employers use the Web App.",
             },
             {
               title: "Is my data secure?",
               text: "Yes. We prioritize data protection and privacy.",
+            },
+            {
+              title: "How do I get started? Is WOK available now?",
+              text: "WOK is currently in early access. You can join the waitlist or request early access directly from the landing page. Over 300 early adopters are already on board.",
             },
           ]);
 
