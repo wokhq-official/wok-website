@@ -828,31 +828,33 @@
                   make data-driven decisions without the headache.
                 </p>
 
-                <!-- Email Input -->
-                <v-text-field
-                  v-model="waitlistEmail"
-                  label="Your Email"
-                  type="email"
-                  variant="outlined"
-                  density="comfortable"
-                  flat
-                  :disabled="waitlistLoading"
-                  :error-messages="waitlistError"
-                  placeholder="you@example.com"
-                  class="mt-4 waitlist_input"
-                ></v-text-field>
-                <v-btn
-                  color="#D7263D"
-                  size="large"
-                  variant="flat"
-                  class="text-capitalize"
-                  block
-                  :loading="waitlistLoading"
-                  :disabled="waitlistLoading || waitlistSuccess"
-                  @click="submitWaitlist"
-                >
-                  Join Now
-                </v-btn>
+                <!-- Email Input with merged button -->
+                <div class="waitlist_input-wrapper mt-4">
+                  <input
+                    v-model="waitlistEmail"
+                    type="email"
+                    placeholder="you@example.com"
+                    class="waitlist_input-field"
+                    :disabled="waitlistLoading"
+                  />
+                  <button
+                    class="waitlist_input-btn"
+                    :disabled="waitlistLoading || waitlistSuccess"
+                    @click="submitWaitlist"
+                  >
+                    <span v-if="!waitlistLoading">Join Now</span>
+                    <v-progress-circular
+                      v-else
+                      indeterminate
+                      size="20"
+                      width="2"
+                      color="#fff"
+                    ></v-progress-circular>
+                  </button>
+                </div>
+                <p v-if="waitlistError" class="waitlist_error">
+                  {{ waitlistError }}
+                </p>
               </div>
               <div class="d-flex justify-center">
                 <div class="avatar_container-dialog">

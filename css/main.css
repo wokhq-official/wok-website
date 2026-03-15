@@ -1072,19 +1072,19 @@ i {
    WAITLIST DIALOG
    ============================================================ */
 .dialog_card {
-  background-color: var(--color-secondary);
+  background-color: var(--color-bg);
 }
 .waitlist_card {
   padding: var(--space-10) var(--space-4);
 }
 .waitlist_title {
-  color: var(--color-text-inverse);
+  color: var(--color-text);
   margin-top: var(--space-4);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-2);
 }
 .waitlist_subtitle {
   font-size: var(--text-sm);
-  color: var(--color-text-inverse);
+  color: var(--color-text-muted);
   margin-bottom: var(--space-8);
 }
 .avatar_container-dialog {
@@ -1095,7 +1095,7 @@ i {
 }
 .user-avatar-dialog {
   margin-left: -10px;
-  border: 2px solid var(--color-primary-light) !important;
+  border: 2px solid var(--color-bg) !important;
   background-color: #fff;
 }
 .user-avatar-dialog:first-child {
@@ -1107,9 +1107,66 @@ i {
 .review_text-dialog {
   line-height: var(--leading-tight);
   font-size: var(--text-xs);
-  color: var(--color-text-inverse);
+  color: var(--color-text);
 }
-@media (max-width: 1300px) {
+/* ============================================================
+   WAITLIST MERGED INPUT
+   ============================================================ */
+.waitlist_input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-bg-subtle);
+  border-radius: var(--radius-full);
+  padding: 6px 6px 6px 16px;
+  gap: var(--space-2);
+}
+.waitlist_input-field {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: #1a1a2e;
+  min-width: 0;
+}
+.waitlist_input-field::placeholder {
+  color: var(--color-text-muted);
+}
+.waitlist_input-field:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.waitlist_input-btn {
+  flex-shrink: 0;
+  background-color: #d7263d;
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-full);
+  padding: 10px 20px;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--ease-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 90px;
+}
+.waitlist_input-btn:hover:not(:disabled) {
+  background-color: var(--color-primary-dark);
+}
+.waitlist_input-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.waitlist_error {
+  color: var(--color-error);
+  font-size: var(--text-xs);
+  margin-top: var(--space-2);
+  text-align: left;
+  max-width: 100%;
 }
 
 /* ============================================================
