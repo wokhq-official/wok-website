@@ -98,7 +98,7 @@
                 @click.prevent="scrollTo('howitworks_section')"
                 >How it Works</router-link
               >
-              <router-link class="nav_link" to="">Pricing</router-link>
+              <!-- <router-link class="nav_link" to="">Pricing</router-link> -->
               <router-link
                 class="nav_link"
                 @click.prevent="scrollTo('faq_section')"
@@ -153,11 +153,11 @@
               title="How it Works"
               @click.prevent="scrollTo('howitworks_section')"
             ></v-list-item>
-            <v-list-item
+            <!-- <v-list-item
               disabled
               class="sidebar-link"
               title="Pricing"
-            ></v-list-item>
+            ></v-list-item> -->
             <v-list-item
               class="sidebar-link"
               title="FAQ"
@@ -185,12 +185,12 @@
                   90% user trust rating
                 </div>
                 <h1 class="title">
-                  Skill-First Hiring. Built for Trust. Powered by Human-Led AI.
+                  Skill-First Hiring. Built for Trust. Powered by Human Led AI.
                 </h1>
                 <p class="subtitle">
-                  WOK helps employers hire based on proven skills — not resumes,
-                  bias, or guesswork — while giving talent a transparent, fair
-                  hiring experience.
+                  WOK matches you to roles based on what you can actually do,
+                  while giving you a transparent and fair hiring experience. No
+                  resume games. No bias. No guesswork.
                 </p>
                 <div class="hero_btns">
                   <v-btn
@@ -200,7 +200,7 @@
                     class="text-capitalize mb-2 me-2 w-100 w-sm-auto"
                     @click="dialog = true"
                   >
-                    Get Early Access
+                    Get early access
                     <iconify-icon
                       icon="basil:arrow-right-outline"
                       width="24"
@@ -251,8 +251,8 @@
                     </div>
                     <div class="review_box">
                       <p class="review_text">
-                        Early users report strong trust in WOK's transparency
-                        and fairness
+                        Early users report genuine trust in WOK's transparency
+                        and fairness.
                       </p>
                     </div>
                   </div>
@@ -332,22 +332,24 @@
                 />
               </v-col>
               <v-col cols="12" md="6" lg="6" class="order-1 order-md-2">
-                <h3 class="about_title">Hiring Is Broken, For Everyone</h3>
+                <h3 class="about_title">
+                  Hiring Is Hard, Your Resume Should Not Make It Harder.
+                </h3>
                 <p class="about_heading">
-                  Too many resumes. Too little signal.
+                  Too many resumes. Too little signals.
                 </p>
                 <p class="about_subheading">
                   Traditional hiring filters candidates by keywords and titles,
-                  not actual ability — leading to bad hires and missed talent.
+                  not actual ability. Leads to bad hires and missed talent.
                 </p>
                 <p class="about_heading">Great skills. Zero visibility.</p>
                 <p class="about_subheading">
-                  Qualified candidates are rejected by automated systems with no
+                  Qualified candidates are rejected by ATS systems with no
                   explanation or feedback.
                 </p>
-                <p class="about_subheading">
-                  Hiring today rewards presentation over performance. WOK
-                  changes that.
+                <p class="about_heading">
+                  Hiring today rewards presentation over competence. WOK changes
+                  that.
                 </p>
               </v-col>
             </v-row>
@@ -374,7 +376,7 @@
                 </div>
                 <div class="subtle_bg chip_feature">
                   <iconify-icon
-                    icon="basil:university-solid"
+                    icon="basil:user-solid"
                     width="24"
                     class="feature_icon"
                   ></iconify-icon>
@@ -382,45 +384,53 @@
                 </div>
                 <div class="subtle_bg chip_feature">
                   <iconify-icon
-                    icon="basil:cancel-solid"
+                    icon="basil:star-solid"
                     width="24"
                     class="feature_icon"
                   ></iconify-icon>
                   Clear success criteria
                 </div>
-                <p class="feature_heading">Why WOK Is Different</p>
-                <p class="feature_subheading">
-                  Designed for Better Hiring Decisions
-                </p>
               </v-col>
               <v-col class="px-0" cols="12" lg="6">
+                <p class="mb-4 feature_heading">Why WOK Is Different</p>
+                <!-- <p class="feature_subheading">
+                  Designed for Better Hiring Decisions
+                </p> -->
                 <!-- sr-feature-1/2/3/4: staggered fadeIn from bottom -->
                 <div class="feature_container sr-feature-1">
-                  <p class="detail_heading">Skill-First, Not Resume-First</p>
+                  <p class="detail_heading">
+                    You always know where you stand. No more guessing.
+                  </p>
                   <p class="detail_subheading">
-                    Candidates are matched based on real skills, not job titles
-                    or background noise.
+                    Every application has clear stages so you know exactly where
+                    you are in the process at every point.
                   </p>
                 </div>
                 <div class="feature_container sr-feature-2">
-                  <p class="detail_heading">Human-Led AI</p>
+                  <p class="detail_heading">
+                    Built to get you through the door.
+                  </p>
                   <p class="detail_subheading">
-                    AI assists with analysis and matching — never final
-                    decisions.
+                    Your profile is optimized to pass the automated filters most
+                    companies use before a human even sees your application. We
+                    make sure you stop getting filtered out before anyone looks
+                    at you.
                   </p>
                 </div>
                 <div class="feature_container sr-feature-3">
-                  <p class="detail_heading">Explainable Outcomes</p>
+                  <p class="detail_heading">Real feedback, every time.</p>
                   <p class="detail_subheading">
-                    Every recommendation and decision can be reviewed and
-                    understood.
+                    When a role does not work out, you get an actual reason why.
+                    Not a generic email. A real explanation so you know exactly
+                    what to work on next.
                   </p>
                 </div>
                 <div class="feature_container sr-feature-4">
-                  <p class="detail_heading">Audit-Ready Hiring</p>
+                  <p class="detail_heading">One platform, two ways to earn</p>
                   <p class="detail_subheading">
-                    Built for fairness, compliance, and accountability from day
-                    one.
+                    Not ready for a full time role? Switch to Gig Boss, earn on
+                    your terms and come back to job seeking whenever you are
+                    ready.
                   </p>
                 </div>
               </v-col>
@@ -447,7 +457,8 @@
                 </div>
                 <p class="howitworks_step-title">Sign Up</p>
                 <p class="howitworks_step-subtitle">
-                  Create your account and join the WOK platform in minutes.
+                  Create your account and set up your profile or company in
+                  minutes.
                 </p>
               </div>
 
@@ -460,10 +471,10 @@
                     style="color: #d7263d"
                   ></iconify-icon>
                 </div>
-                <p class="howitworks_step-title">Create Profile</p>
+                <p class="howitworks_step-title">Smart Matching</p>
                 <p class="howitworks_step-subtitle">
-                  Build a skill-based profile that showcases what you can
-                  actually do.
+                  AI connects talents to relevant jobs while employers get
+                  matched with qualified candidates.
                 </p>
               </div>
 
@@ -476,9 +487,10 @@
                     style="color: #d7263d"
                   ></iconify-icon>
                 </div>
-                <p class="howitworks_step-title">Get Matched</p>
+                <p class="howitworks_step-title">Review & Connect</p>
                 <p class="howitworks_step-subtitle">
-                  Our AI surfaces roles where your skills are the right fit.
+                  Employers review candidates, while talents get automatically
+                  considered for matching roles.
                 </p>
               </div>
 
@@ -486,15 +498,15 @@
               <div class="howitworks_step">
                 <div class="howitworks_icon-circle">
                   <iconify-icon
-                    icon="basil:current-location-solid"
+                    icon="basil:video-solid"
                     width="28"
                     style="color: #d7263d"
                   ></iconify-icon>
                 </div>
-                <p class="howitworks_step-title">Apply & Track</p>
+                <p class="howitworks_step-title">Interview</p>
                 <p class="howitworks_step-subtitle">
-                  Apply easily and track your hiring progress every step of the
-                  way.
+                  Both talents and employers meet to assess fit and discuss
+                  expectations.
                 </p>
               </div>
 
@@ -507,9 +519,9 @@
                     style="color: #d7263d"
                   ></iconify-icon>
                 </div>
-                <p class="howitworks_step-title">Get Hired</p>
+                <p class="howitworks_step-title">Offer & Get Hired</p>
                 <p class="howitworks_step-subtitle">
-                  Land a role where your skills are recognised and valued.
+                  Employers send offers, and talents accept to start working.
                 </p>
               </div>
             </v-row>
@@ -519,11 +531,10 @@
               <v-col class="pa-0" cols="12" md="6" lg="6">
                 <div class="platform_container-talent">
                   <div class="platform_content-talent">
-                    <h3 class="platform_title">WOK For Talent</h3>
+                    <h3 class="platform_title">WOK For Talents</h3>
                     <p class="platform_subheading">
-                      Stop being just another PDF in a pile. WOK prioritizes
-                      your actual abilities, connecting you directly to roles
-                      where you can thrive.
+                      Stop being just another PDF in a pile. You have put in the
+                      work. WOK makes sure employers see it.
                     </p>
                   </div>
 
@@ -535,11 +546,19 @@
                   <div class="role_breakdown">
                     <p class="role_breakdown-item d-flex align-center">
                       <iconify-icon
-                        icon="basil:lightning-alt-solid"
+                        icon="basil:clock-solid"
                         width="24"
                         class="me-2"
                       ></iconify-icon>
-                      Create a skill-based profile
+                      ATS Optimized Resume
+                    </p>
+                    <p class="role_breakdown-item d-flex align-center">
+                      <iconify-icon
+                        icon="basil:comment-solid"
+                        width="24"
+                        class="me-2"
+                      ></iconify-icon>
+                      Live Employer Chat
                     </p>
                     <p class="role_breakdown-item d-flex align-center">
                       <iconify-icon
@@ -547,23 +566,15 @@
                         width="24"
                         class="me-2"
                       ></iconify-icon>
-                      Get matched — not filtered out
+                      Free Plan Available
                     </p>
                     <p class="role_breakdown-item d-flex align-center">
                       <iconify-icon
-                        icon="basil:lightning-alt-solid"
+                        icon="basil:notification-solid"
                         width="24"
                         class="me-2"
                       ></iconify-icon>
-                      Track your hiring progress
-                    </p>
-                    <p class="role_breakdown-item d-flex align-center">
-                      <iconify-icon
-                        icon="basil:lightning-alt-solid"
-                        width="24"
-                        class="me-2"
-                      ></iconify-icon>
-                      Access roles that fit
+                      Real Time Notifications
                     </p>
                   </div>
                 </div>
@@ -587,9 +598,9 @@
                   <div class="platform_content-employer">
                     <h3 class="platform_title">WOK For Employers</h3>
                     <p class="platform_subheading">
-                      WOK replaces the "resume black hole" with a streamlined,
-                      skill-first ecosystem designed to get you the right
-                      talent, faster.
+                      Stop hiring on paper. Start hiring on proof. WOK shows you
+                      candidates based on what they have actually done, not just
+                      what they have written about themselves.
                     </p>
                   </div>
 
@@ -618,37 +629,37 @@
                 <div class="d-flex justify-start">
                   <p class="role_breakdown-item d-flex align-center">
                     <iconify-icon
-                      icon="basil:lightning-alt-solid"
+                      icon="basil:user-solid"
                       width="24"
                       class="me-2"
                     ></iconify-icon>
-                    Define roles by skills
+                    Team Collaboration
                   </p>
                   <p class="role_breakdown-item d-flex align-center">
                     <iconify-icon
-                      icon="basil:lightning-alt-solid"
+                      icon="basil:video-solid"
                       width="24"
                       class="me-2"
                     ></iconify-icon>
-                    Get AI-assisted candidate matches
+                    Interview Scheduling
                   </p>
                 </div>
                 <div class="d-flex justify-start">
                   <p class="role_breakdown-item d-flex align-center">
                     <iconify-icon
-                      icon="basil:lightning-alt-solid"
+                      icon="basil:clipboard-alt-solid"
                       width="24"
                       class="me-2"
                     ></iconify-icon>
-                    Evaluate with transparent stages
+                    Digital Contracts Creation
                   </p>
                   <p class="role_breakdown-item d-flex align-center">
                     <iconify-icon
-                      icon="basil:lightning-alt-solid"
+                      icon="basil:calendar-solid"
                       width="24"
                       class="me-2"
                     ></iconify-icon>
-                    Hire with confidence
+                    Google Calendar Integration
                   </p>
                 </div>
                 <v-btn
@@ -783,7 +794,8 @@
                   alt="Logo"
                 />
                 <p class="d-none d-sm-none d-md-flex">
-                  &copy; WOK. All rights reserved.
+                  &copy; 2026 WOK. All rights reserved.
+                  <a href="#" class="foot_link">&nbsp;Privacy policy</a>
                 </p>
                 <div class="d-flex">
                   <div class="media_container">
@@ -813,7 +825,10 @@
                 cols="12"
                 class="d-flex d-sm-flex d-md-none justify-center"
               >
-                <p>&copy; WOK. All rights reserved.</p>
+                <p>
+                  &copy; 2026 WOK. All rights reserved.
+                  <a href="#" class="foot_link">&nbsp;Privacy policy</a>
+                </p>
               </v-col>
             </v-row>
           </v-container>
