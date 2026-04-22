@@ -661,8 +661,8 @@ i {
    FEATURE SECTION
    ============================================================ */
 #feature_section {
-  padding-top: var(--space-28);
-  margin-bottom: var(--space-12);
+  padding-top: var(--space-32);
+  margin-bottom: var(--space-16);
 }
 .feature_title {
   font-weight: 400;
