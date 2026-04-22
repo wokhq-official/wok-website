@@ -1055,7 +1055,7 @@
             result.value = "";
             try {
               const response = await fetch(
-                "http://13.62.230.8/v1/admin/waitlist",
+                "https://dev.wokhq.com/v1/admin/waitlist",
               );
               const data = await response.json();
               result.value = `Fetched: "${data.title}"`;
@@ -1078,7 +1078,7 @@
 
             try {
               const response = await fetch(
-                "http://13.62.230.8/v1/admin/waitlist",
+                "https://dev.wokhq.com/v1/admin/waitlist",
                 {
                   method: "POST",
                   headers: { "Content-Type": "application/json" },
