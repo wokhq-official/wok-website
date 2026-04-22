@@ -724,7 +724,7 @@ i {
   background-color: var(--color-primary);
   position: relative;
   width: 100%;
-  min-height: 570px;
+  min-height: 560px;
   height: auto;
   padding-top: var(--space-8);
   display: flex;
@@ -742,7 +742,7 @@ i {
   width: 100%;
   min-height: 500px;
   height: auto;
-  margin-top: 70px;
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
 }
