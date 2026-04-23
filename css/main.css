@@ -662,7 +662,7 @@ i {
    ============================================================ */
 #feature_section {
   padding-top: var(--space-32);
-  margin-bottom: var(--space-16);
+  margin-bottom: var(--space-8);
 }
 .feature_title {
   font-weight: 400;
@@ -954,7 +954,7 @@ i {
    FAQ SECTION
    ============================================================ */
 #faq_section {
-  padding-top: var(--space-32);
+  padding-top: var(--space-16);
   margin-bottom: var(--space-16);
 }
 .faq_title {
@@ -1268,7 +1268,7 @@ i {
    HOW IT WORKS SECTION
    ============================================================ */
 #howitworks_section {
-  padding-top: var(--space-32);
+  padding-top: var(--space-16);
   margin-bottom: var(--space-4);
 }
 .howitworks_title {
