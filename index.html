@@ -366,15 +366,12 @@
           </v-container>
           <v-container fluid id="feature_section">
             <v-row class="mx-1 mx-sm-4">
-              <v-col class="px-0" cols="12" lg="6">
+              <v-col cols="12" lg="6">
                 <h3 class="feature_title">What Is WOK?</h3>
                 <p class="feature_subheading">
                   WOK is a skill-first hiring platform designed to make hiring
-                  fair, transparent, and explainable.
-                </p>
-                <p class="feature_subheading">
-                  AI supports the process, but humans stay in control of every
-                  hiring decision.
+                  fair, transparent, and explainable. AI supports the process,
+                  but humans stay in control of every hiring decision.
                 </p>
                 <div class="subtle_bg chip_feature">
                   <iconify-icon
@@ -456,7 +453,7 @@
             <v-row class="mx-1 mx-sm-4 howitworks_row">
               <!-- Step 1 -->
               <div class="howitworks_step">
-                <div class="howitworks_icon-circle">
+                <div class="howitworks_icon-circle ava_icon-1">
                   <iconify-icon
                     icon="basil:stack-solid"
                     width="28"
@@ -472,7 +469,7 @@
 
               <!-- Step 2 -->
               <div class="howitworks_step">
-                <div class="howitworks_icon-circle">
+                <div class="howitworks_icon-circle ava_icon-2">
                   <iconify-icon
                     icon="basil:like-solid"
                     width="28"
@@ -488,7 +485,7 @@
 
               <!-- Step 3 -->
               <div class="howitworks_step">
-                <div class="howitworks_icon-circle">
+                <div class="howitworks_icon-circle ava_icon-3">
                   <iconify-icon
                     icon="basil:video-solid"
                     width="28"
@@ -504,7 +501,7 @@
 
               <!-- Step 4 -->
               <div class="howitworks_step">
-                <div class="howitworks_icon-circle">
+                <div class="howitworks_icon-circle ava_icon-4">
                   <iconify-icon
                     icon="basil:bag-solid"
                     width="28"
@@ -1208,6 +1205,19 @@
             sr.reveal(".sr-feature-2", { ...fadeUp, delay: 250 });
             sr.reveal(".sr-feature-3", { ...fadeUp, delay: 400 });
             sr.reveal(".sr-feature-4", { ...fadeUp, delay: 550 });
+
+            const fadeUp_icon = {
+              origin: "bottom",
+              distance: "30px",
+              opacity: 0,
+              duration: 600,
+              easing: "ease-out",
+            };
+
+            sr.reveal(".ava_icon-1", { ...fadeUp_icon, delay: 100 });
+            sr.reveal(".ava_icon-2", { ...fadeUp_icon, delay: 250 });
+            sr.reveal(".ava_icon-3", { ...fadeUp_icon, delay: 400 });
+            sr.reveal(".ava_icon-4", { ...fadeUp_icon, delay: 550 });
 
             const statsBounce = {
               origin: "bottom",
