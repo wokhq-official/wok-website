@@ -317,6 +317,80 @@
               </v-col>
             </v-row>
           </v-container>
+          <v-container>
+            <v-row class="live_container-bg">
+              <v-col cols="12">
+                <div class="biz_container d-flex justify-space-between">
+                  <img class="biz_img" src="/assets/biz1.png" />
+                  <img class="biz_img" src="/assets/biz2.png" />
+                  <img class="biz_img" src="/assets/biz3.png" />
+                  <img class="biz_img" src="/assets/biz4.png" />
+                  <img class="biz_img" src="/assets/biz5.png" />
+                  <img class="biz_img" src="/assets/biz6.png" />
+                </div>
+              </v-col>
+              <v-col cols="12" md="4" lg="4" class="live_indicator">
+                <div class="live_indicator-card">
+                  <div class="d-flex justify-end">
+                    <div class="noblink"></div>
+                  </div>
+                  <p class="live_count">{{ matchedCount }}</p>
+                  <p class="count_title">Candidates Matched</p>
+                  <div class="d-flex justify-start align-center">
+                    <iconify-icon
+                      icon="basil:user-outline"
+                      width="24"
+                      class="indicator_icon"
+                    ></iconify-icon>
+                    <p class="count_subtitle">
+                      AI-driven matching is prioritizing
+                      <b>verified</b> profiles today.
+                    </p>
+                  </div>
+                </div>
+              </v-col>
+              <v-col cols="12" md="4" lg="4" class="live_indicator interview">
+                <div class="live_indicator-card">
+                  <div class="d-flex justify-end">
+                    <div class="blink"></div>
+                  </div>
+                  <p class="live_count">{{ interviewCount }}</p>
+                  <p class="count_title">Interviews Happening Now</p>
+                  <div class="d-flex justify-start align-center">
+                    <iconify-icon
+                      icon="basil:video-outline"
+                      width="24"
+                      class="indicator_icon"
+                    ></iconify-icon>
+                    <p class="count_subtitle">
+                      Active sessions are up <b>{{ percentage }}%</b> from
+                      yesterday.
+                    </p>
+                  </div>
+                </div>
+              </v-col>
+              <v-col cols="12" md="4" lg="4" class="live_indicator">
+                <div class="live_indicator-card">
+                  <div class="d-flex justify-end">
+                    <div class="noblink"></div>
+                  </div>
+                  <p class="live_count">{{ employersCount }}</p>
+                  <p class="count_title">New Employers Joined</p>
+                  <div class="d-flex justify-start align-center">
+                    <iconify-icon
+                      icon="basil:bag-outline"
+                      width="24"
+                      class="indicator_icon"
+                    ></iconify-icon>
+                    <p class="count_subtitle">
+                      <b>{{ Math.floor(employersCount * 0.4) }}</b> of these
+                      employers are hiring for remote first positions.
+                    </p>
+                  </div>
+                </div>
+              </v-col>
+            </v-row>
+          </v-container>
           <v-container fluid id="about_section">
             <v-row class="mx-1 mx-sm-4 about_container-bg">
               <v-col
@@ -950,6 +1024,23 @@
             </v-card-text>
           </v-card>
         </v-dialog>
+
+        <!-- notification pop ups -->
+        <Transition name="popup">
+          <div v-if="popupVisible" class="sp-popup">
+            <img src="/assets/popup-bg.png" class="sp-img" />
+            <div class="sp-body">
+              <p class="sp-text">{{ popupData.role }}.</p>
+              <div class="d-flex justify-space-between align-center">
+                <span class="sp-badge">🔔 Live</span>
+                <span class="sp-time">{{ popupData.time }}</span>
+              </div>
+            </div>
+            <button class="sp-close" @click="popupVisible = false">
+              <Icon icon="basil:cross-outline" width="16" />
+            </button>
+          </div>
+        </Transition>
       </v-app>
     </div>
 
@@ -1272,6 +1363,193 @@
             if (slideshowInterval) clearInterval(slideshowInterval);
           });
 
+          // ─── Seeded random (date-based so values change daily) ────────────────────
+          const today = new Date();
+          const seed =
+            today.getFullYear() * 10000 +
+            (today.getMonth() + 1) * 100 +
+            today.getDate();
+
+          const seededRand = (min, max, offset = 0) => {
+            const x = Math.sin(seed + offset) * 10000;
+            const t = x - Math.floor(x);
+            return Math.floor(t * (max - min + 1)) + min;
+          };
+
+          // ─── Daily targets (different each day, never start at 0) ────────────────
+          const interviewTarget = seededRand(8, 24, 1);
+          const matchedTarget = seededRand(40, 120, 2);
+          const employersTarget = seededRand(15, 60, 3);
+          const percentageTarget = seededRand(12, 48, 4);
+
+          // ─── Reactive counters ────────────────────────────────────────────────────
+          const interviewCount = ref(seededRand(3, 7, 5)); // starts mid-range
+          const matchedCount = ref(seededRand(10, 25, 6));
+          const employersCount = ref(seededRand(5, 12, 7));
+          const percentage = ref(seededRand(2, 8, 8));
+
+          // ─── Timers ───────────────────────────────────────────────────────────────
+          let intervals = [];
+
+          const rampUp = (counter, target, intervalMs) => {
+            const id = setInterval(() => {
+              if (counter.value < target) {
+                counter.value++;
+              } else {
+                clearInterval(id);
+              }
+            }, intervalMs);
+            intervals.push(id);
+          };
+
+          // Interviews: ramp up then fluctuate (meetings ending + new ones starting)
+          const startInterviewFluctuation = () => {
+            rampUp(interviewCount, interviewTarget, 4000);
+
+            const fluctId = setTimeout(() => {
+              const id = setInterval(
+                () => {
+                  const delta = Math.random() > 0.45 ? 1 : -1;
+                  const next = interviewCount.value + delta;
+
+                  if (
+                    next >= Math.floor(interviewTarget * 0.6) &&
+                    next <= interviewTarget + 3
+                  ) {
+                    interviewCount.value = next;
+                    // percentage moves in the same direction as interview count
+                    const pDelta =
+                      delta > 0
+                        ? seededRand(1, 3, Date.now())
+                        : -seededRand(1, 2, Date.now());
+                    const nextP = percentage.value + pDelta;
+                    if (nextP >= 1 && nextP <= percentageTarget + 10) {
+                      percentage.value = nextP;
+                    }
+                  }
+                },
+                seededRand(8000, 20000, 9),
+              );
+              intervals.push(id);
+            }, 120000);
+
+            intervals.push(fluctId);
+          };
+
+          onMounted(() => {
+            startInterviewFluctuation();
+            rampUp(matchedCount, matchedTarget, seededRand(2500, 4000, 10));
+            rampUp(employersCount, employersTarget, seededRand(5000, 9000, 11));
+            rampUp(percentage, percentageTarget, seededRand(6000, 10000, 12));
+          });
+
+          onUnmounted(() => {
+            intervals.forEach(clearInterval);
+            intervals.forEach(clearTimeout);
+            intervals = [];
+          });
+
+          // notifications pop ups
+          const notifications = [
+            {
+              role: "Senior Backend Developer hired by a Nairobi-based FinTech enterprise.",
+            },
+            {
+              role: "UI/UX Designer from Abuja shortlisted for an Austin-based EdTech startup.",
+            },
+            {
+              role: "Data Analyst shortlisted for a New York marketing intelligence firm.",
+            },
+            {
+              role: "Flutter Developer from Lagos shortlisted for a pan-African e-commerce app.",
+            },
+            {
+              role: "Technical Product Manager hired by an Amsterdam SaaS scaling company.",
+            },
+            {
+              role: "Telehealth Nurse Practitioner hired by a Toronto-based digital health provider.",
+            },
+            {
+              role: "Investment Banking Associate shortlisted for a pan-African private equity firm.",
+            },
+            {
+              role: "Supply Chain Manager hired by an international FMCG (Fast-Moving Consumer Goods) company.",
+            },
+            {
+              role: "Business Development Manager shortlisted for a renewable energy provider in Accra.",
+            },
+            {
+              role: "Bilingual Support Specialist (French/English) shortlisted for an international outsourcing hub.",
+            },
+            {
+              role: "Clinical Research Coordinator shortlisted for a Lagos-based pharmaceutical trial.",
+            },
+            {
+              role: "Credit Risk Analyst hired by a Tier-1 commercial bank in Lagos.",
+            },
+            {
+              role: "Enterprise Account Executive hired by a global B2B software firm.",
+            },
+            {
+              role: "Customer Success Manager hired by a European SaaS scaling company.",
+            },
+          ];
+
+          const timeLabels = [
+            "Just now",
+            "2 mins ago",
+            "5 mins ago",
+            "22 mins ago",
+            "12 mins ago",
+            "moments ago",
+          ];
+
+          const popupVisible = ref(false);
+          const popupData = ref({});
+
+          let hideTimer = null;
+          let intervalId = null;
+          let lastIndex = -1;
+
+          const showPopup = () => {
+            let idx;
+
+            do {
+              idx = Math.floor(Math.random() * notifications.length);
+            } while (idx === lastIndex);
+
+            lastIndex = idx;
+
+            popupData.value = {
+              ...notifications[idx],
+              time: timeLabels[Math.floor(Math.random() * timeLabels.length)],
+            };
+
+            popupVisible.value = true;
+
+            clearTimeout(hideTimer);
+
+            // Hide popup after 2 seconds
+            hideTimer = setTimeout(() => {
+              popupVisible.value = false;
+            }, 6000);
+          };
+
+          onMounted(() => {
+            // Show immediately
+            showPopup();
+
+            // Show every 60 seconds for testing
+            intervalId = setInterval(() => {
+              showPopup();
+            }, 60000);
+          });
+
+          onUnmounted(() => {
+            clearInterval(intervalId);
+            clearTimeout(hideTimer);
+          });
+
           return {
             name,
             loading,
@@ -1290,6 +1568,12 @@
             waitlistError,
             waitlistSuccess,
             submitWaitlist,
+            interviewCount,
+            matchedCount,
+            employersCount,
+            percentage,
+            popupVisible,
+            popupData,
           };
         },
       });
