@@ -566,17 +566,46 @@ i {
   padding-top: var(--space-32);
   margin-bottom: var(--space-2);
 }
-/* .live_container-bg {
-  background-color: #f5f5f5;
-  padding: var(--space-16) var(--space-4);
-  border-radius: 20px;
-} */
 .biz_container {
   padding-top: var(--space-16);
   padding-bottom: var(--space-16);
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  align-items: center;
+  justify-items: center;
 }
+
 .biz_img {
   width: 10rem;
+  max-width: 100%;
+}
+
+/* tablet — 3 columns */
+@media (max-width: 960px) {
+  .biz_img {
+    width: 8rem;
+  }
+}
+
+/* tablet — 3 columns */
+@media (max-width: 768px) {
+  .biz_container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .biz_img {
+    width: 7rem;
+  }
+}
+
+/* mobile — 2 columns */
+@media (max-width: 480px) {
+  .biz_container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .biz_img {
+    width: 6rem;
+  }
 }
 .live_indicator-card {
   background-color: #f5f5f5;
@@ -642,7 +671,7 @@ i {
 }
 .about_title {
   font-weight: 400;
-  width: 25rem;
+  max-width: 25rem;
   margin-bottom: var(--space-8);
 }
 .about_heading {
@@ -838,12 +867,12 @@ i {
 }
 
 .platform_subheading {
-  margin-bottom: var(--space-10);
+  margin-bottom: var(--space-4);
 }
 
 /* Talent image — keep absolute but use % sizing */
 .talent_img {
-  width: clamp(180px, 50%, 300px);
+  width: clamp(180px, 50%, 400px);
   height: auto;
   aspect-ratio: 300 / 308.88;
   position: absolute;
@@ -1402,7 +1431,7 @@ i {
   position: fixed;
   bottom: 24px;
   left: 24px;
-  width: 350px;
+  max-width: 350px;
   background: #fff;
   border: 0.5px solid #e0e0e0;
   border-radius: 12px;
