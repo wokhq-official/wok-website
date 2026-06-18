@@ -288,7 +288,9 @@
                 </div>
                 <div class="hero_tooltip-three sr-tooltip-3">
                   <h1 class="tooltip_figure">3X</h1>
-                  <p>higher visibility for qualified candidates</p>
+                  <p class="tooltip_text">
+                    higher visibility for qualified candidates
+                  </p>
                 </div>
 
                 <!-- Image Slideshow -->
@@ -319,16 +321,6 @@
           </v-container>
           <v-container>
             <v-row class="live_container-bg">
-              <v-col cols="12">
-                <div class="biz_container">
-                  <img class="biz_img" src="/assets/biz1-cc.png" />
-                  <img class="biz_img" src="/assets/biz2-cc.png" />
-                  <img class="biz_img" src="/assets/biz3-cc.png" />
-                  <img class="biz_img" src="/assets/biz4-cc.png" />
-                  <img class="biz_img" src="/assets/biz5-cc.png" />
-                  <img class="biz_img" src="/assets/biz6-cc.png" />
-                </div>
-              </v-col>
               <v-col cols="12" md="4" lg="4" class="live_indicator">
                 <div class="live_indicator-card">
                   <div class="d-flex justify-end">
@@ -387,6 +379,16 @@
                       employers are hiring for remote first positions.
                     </p>
                   </div>
+                </div>
+              </v-col>
+              <v-col cols="12">
+                <div class="biz_container">
+                  <img class="biz_img" src="/assets/biz1-cc.png" />
+                  <img class="biz_img" src="/assets/biz2-cc.png" />
+                  <img class="biz_img" src="/assets/biz3-cc.png" />
+                  <img class="biz_img" src="/assets/biz4-cc.png" />
+                  <img class="biz_img" src="/assets/biz5-cc.png" />
+                  <img class="biz_img" src="/assets/biz6-cc.png" />
                 </div>
               </v-col>
             </v-row>
@@ -531,7 +533,7 @@
                   <iconify-icon
                     icon="basil:stack-solid"
                     width="28"
-                    style="color: #d7263d"
+                    style="color: #083553"
                   ></iconify-icon>
                 </div>
                 <p class="howitworks_step-title">Smart Matching</p>
@@ -547,7 +549,7 @@
                   <iconify-icon
                     icon="basil:like-solid"
                     width="28"
-                    style="color: #d7263d"
+                    style="color: #083553"
                   ></iconify-icon>
                 </div>
                 <p class="howitworks_step-title">Review & Connect</p>
@@ -563,7 +565,7 @@
                   <iconify-icon
                     icon="basil:video-solid"
                     width="28"
-                    style="color: #d7263d"
+                    style="color: #083553"
                   ></iconify-icon>
                 </div>
                 <p class="howitworks_step-title">Interview</p>
@@ -579,7 +581,7 @@
                   <iconify-icon
                     icon="basil:bag-solid"
                     width="28"
-                    style="color: #d7263d"
+                    style="color: #083553"
                   ></iconify-icon>
                 </div>
                 <p class="howitworks_step-title">Offer & Get Hired</p>
@@ -646,12 +648,12 @@
                 <div class="platform_mobile d-flex justify-start">
                   <img
                     class="google_tag"
-                    src="/assets/google-play-tag.png"
+                    src="/assets/google-play-tag2.png"
                     alt="Logo"
                   />
                   <img
                     class="apple_tag"
-                    src="/assets/app-store-tag.png"
+                    src="/assets/app-store-tag2.png"
                     alt="Logo"
                   />
                 </div>
@@ -678,12 +680,12 @@
                 <div class="platform_mobile d-flex justify-start">
                   <img
                     class="google_tag"
-                    src="/assets/google-play-tag.png"
+                    src="/assets/google-play-tag2.png"
                     alt="Logo"
                   />
                   <img
                     class="apple_tag"
-                    src="/assets/app-store-tag.png"
+                    src="/assets/app-store-tag2.png"
                     alt="Logo"
                   />
                 </div>
@@ -726,7 +728,7 @@
                   </p>
                 </div>
                 <v-btn
-                  color="#FFCCD3"
+                  color="#083553"
                   size="large"
                   variant="flat"
                   class="text-capitalize emp_btn"
@@ -1028,11 +1030,18 @@
         <!-- notification pop ups -->
         <Transition name="popup">
           <div v-if="popupVisible" class="sp-popup">
-            <img src="/assets/popup-bg.png" class="sp-img" />
+            <div class="box_avavtar d-flex justify-center align-center">
+              <iconify-icon
+                class="box_icon"
+                icon="basil:bag-outline"
+                width="40"
+              />
+            </div>
+            <!-- <img src="/assets/popup-bg.png" class="sp-img" /> -->
             <div class="sp-body">
               <p class="sp-text">{{ popupData.role }}.</p>
               <div class="d-flex justify-space-between align-center">
-                <span class="sp-badge">🔔 Live</span>
+                <span class="sp-badge">Live</span>
                 <span class="sp-time">{{ popupData.time }}</span>
               </div>
             </div>
