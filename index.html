@@ -178,6 +178,88 @@
 
         <v-main>
           <v-container fluid id="hero_section">
+            <v-row class="live_container-bg row_card" dense>
+              <v-col cols="12" md="3" lg="3" class="live_indicator">
+                <div class="live_indicator-card">
+                  <div class="d-flex justify-end">
+                    <div class="noblink"></div>
+                  </div>
+                  <p class="live_count">{{ matchedCount }}</p>
+                  <p class="count_title">Candidates Matched</p>
+                  <div class="d-flex justify-start align-center">
+                    <iconify-icon
+                      icon="basil:user-outline"
+                      width="24"
+                      class="indicator_icon"
+                    ></iconify-icon>
+                    <p class="count_subtitle">
+                      AI-driven matching is prioritizing
+                      <b>verified</b> profiles today.
+                    </p>
+                  </div>
+                </div>
+              </v-col>
+              <v-col cols="12" md="3" lg="3" class="live_indicator interview">
+                <div class="live_indicator-card">
+                  <div class="d-flex justify-end">
+                    <div class="blink"></div>
+                  </div>
+                  <p class="live_count">{{ interviewCount }}</p>
+                  <p class="count_title">Interviews Happening Now</p>
+                  <div class="d-flex justify-start align-center">
+                    <iconify-icon
+                      icon="basil:video-outline"
+                      width="24"
+                      class="indicator_icon"
+                    ></iconify-icon>
+                    <p class="count_subtitle">
+                      Active sessions are up <b>{{ percentage }}%</b> from
+                      yesterday.
+                    </p>
+                  </div>
+                </div>
+              </v-col>
+              <v-col cols="12" md="3" lg="3" class="live_indicator">
+                <div class="live_indicator-card">
+                  <div class="d-flex justify-end">
+                    <div class="noblink"></div>
+                  </div>
+                  <p class="live_count">{{ employersCount }}</p>
+                  <p class="count_title">New Employers Joined</p>
+                  <div class="d-flex justify-start align-center">
+                    <iconify-icon
+                      icon="basil:bag-outline"
+                      width="24"
+                      class="indicator_icon"
+                    ></iconify-icon>
+                    <p class="count_subtitle">
+                      <b>{{ Math.floor(employersCount * 0.4) }}</b> of these
+                      employers are hiring for remote first positions.
+                    </p>
+                  </div>
+                </div>
+              </v-col>
+              <v-col cols="12" md="3" lg="3" class="live_indicator">
+                <div class="live_indicator-card">
+                  <div class="d-flex justify-end">
+                    <div class="noblink"></div>
+                  </div>
+                  <p class="live_count">259</p>
+                  <p class="count_title">Total Candidate Joined</p>
+                  <div class="d-flex justify-start align-center">
+                    <iconify-icon
+                      icon="basil:bag-outline"
+                      width="24"
+                      class="indicator_icon"
+                    ></iconify-icon>
+                    <p class="count_subtitle">
+                      <b>{{ Math.floor(employersCount * 0.4) }}</b> of these
+                      employers are hiring for remote first positions.
+                    </p>
+                  </div>
+                </div>
+              </v-col>
+            </v-row>
             <v-row class="px-1 px-sm-4">
               <v-col cols="12" lg="7">
                 <div class="subtle_bg chip_ratings">
@@ -321,66 +403,6 @@
           </v-container>
           <v-container>
             <v-row class="live_container-bg">
-              <v-col cols="12" md="4" lg="4" class="live_indicator">
-                <div class="live_indicator-card">
-                  <div class="d-flex justify-end">
-                    <div class="noblink"></div>
-                  </div>
-                  <p class="live_count">{{ matchedCount }}</p>
-                  <p class="count_title">Candidates Matched</p>
-                  <div class="d-flex justify-start align-center">
-                    <iconify-icon
-                      icon="basil:user-outline"
-                      width="24"
-                      class="indicator_icon"
-                    ></iconify-icon>
-                    <p class="count_subtitle">
-                      AI-driven matching is prioritizing
-                      <b>verified</b> profiles today.
-                    </p>
-                  </div>
-                </div>
-              </v-col>
-              <v-col cols="12" md="4" lg="4" class="live_indicator interview">
-                <div class="live_indicator-card">
-                  <div class="d-flex justify-end">
-                    <div class="blink"></div>
-                  </div>
-                  <p class="live_count">{{ interviewCount }}</p>
-                  <p class="count_title">Interviews Happening Now</p>
-                  <div class="d-flex justify-start align-center">
-                    <iconify-icon
-                      icon="basil:video-outline"
-                      width="24"
-                      class="indicator_icon"
-                    ></iconify-icon>
-                    <p class="count_subtitle">
-                      Active sessions are up <b>{{ percentage }}%</b> from
-                      yesterday.
-                    </p>
-                  </div>
-                </div>
-              </v-col>
-              <v-col cols="12" md="4" lg="4" class="live_indicator">
-                <div class="live_indicator-card">
-                  <div class="d-flex justify-end">
-                    <div class="noblink"></div>
-                  </div>
-                  <p class="live_count">{{ employersCount }}</p>
-                  <p class="count_title">New Employers Joined</p>
-                  <div class="d-flex justify-start align-center">
-                    <iconify-icon
-                      icon="basil:bag-outline"
-                      width="24"
-                      class="indicator_icon"
-                    ></iconify-icon>
-                    <p class="count_subtitle">
-                      <b>{{ Math.floor(employersCount * 0.4) }}</b> of these
-                      employers are hiring for remote first positions.
-                    </p>
-                  </div>
-                </div>
-              </v-col>
               <v-col cols="12">
                 <div class="biz_container">
                   <img class="biz_img" src="/assets/biz1-cc.png" />
