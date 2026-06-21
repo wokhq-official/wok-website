@@ -81,7 +81,7 @@
           <template #prepend>
             <img
               class="brand_logo"
-              :src="isDark ? '/assets/wok-logo-light.svg' : '/assets/wok-logo-dark.svg'"
+              src="/assets/wok-logo-light.svg"
               alt="Logo"
             />
           </template>
@@ -111,7 +111,8 @@
             <!-- Dark / Light mode toggle -->
             <v-btn icon size="40" class="me-2" @click="toggleTheme">
               <iconify-icon
-                :color="isDark ? '#FFD166' : '#083553'"
+                class="toggle_icon"
+                :key="isDark ? 'sun' : 'moon'"
                 :icon="isDark ? 'basil:sun-solid' : 'basil:moon-solid'"
                 width="24"
               ></iconify-icon>
@@ -119,9 +120,8 @@
 
             <!-- Join Waitlist (desktop) -->
             <v-btn
-              color="#d7263d"
               variant="flat"
-              class="text-capitalize d-none d-sm-none d-md-flex"
+              class="primary_btn text-capitalize d-none d-sm-none d-md-flex"
               @click="dialog = true"
             >
               Join Waitlist
@@ -194,7 +194,7 @@
                     ></iconify-icon>
                     <p class="count_subtitle">
                       AI-driven matching is prioritizing
-                      <b>verified</b> profiles today.
+                      <b class="bold_text">verified</b> profiles today.
                     </p>
                   </div>
                 </div>
@@ -213,8 +213,8 @@
                       class="indicator_icon"
                     ></iconify-icon>
                     <p class="count_subtitle">
-                      Active sessions are up <b>{{ percentage }}%</b> from
-                      yesterday.
+                      Active sessions are up
+                      <b class="bold_text">{{ percentage }}%</b> from yesterday.
                     </p>
                   </div>
                 </div>
@@ -233,8 +233,10 @@
                       class="indicator_icon"
                     ></iconify-icon>
                     <p class="count_subtitle">
-                      <b>{{ Math.floor(employersCount * 0.4) }}</b> of these
-                      employers are hiring for remote first positions.
+                      <b class="bold_text"
+                        >{{ Math.floor(employersCount * 0.4) }}</b
+                      >
+                      of these employers are hiring for remote first positions.
                     </p>
                   </div>
                 </div>
@@ -248,13 +250,13 @@
                   <p class="count_title">Total Candidate Joined</p>
                   <div class="d-flex justify-start align-center">
                     <iconify-icon
-                      icon="basil:bag-outline"
+                      icon="basil:user-outline"
                       width="24"
                       class="indicator_icon"
                     ></iconify-icon>
                     <p class="count_subtitle">
-                      <b>{{ Math.floor(employersCount * 0.4) }}</b> of these
-                      employers are hiring for remote first positions.
+                      Many of these candidates are actively seeking remote
+                      positions.
                     </p>
                   </div>
                 </div>
@@ -276,10 +278,9 @@
                 </p>
                 <div class="hero_btns">
                   <v-btn
-                    color="#d7263d"
                     size="large"
                     variant="flat"
-                    class="text-capitalize mb-2 me-2 w-100 w-sm-auto"
+                    class="primary_btn text-capitalize mb-2 me-2 w-100 w-sm-auto"
                     @click="dialog = true"
                   >
                     Get early access
@@ -290,10 +291,9 @@
                     ></iconify-icon>
                   </v-btn>
                   <v-btn
-                    color="#F8F8F8"
                     size="large"
                     variant="flat"
-                    class="text-capitalize mb-2 w-100 w-sm-auto"
+                    class="secondary_btn text-capitalize mb-2 w-100 w-sm-auto"
                     @click.prevent="scrollTo('feature_section')"
                   >
                     <iconify-icon
@@ -425,10 +425,10 @@
               >
                 <!-- sr-about-tooltip: bounceIn from left -->
                 <div class="about_tooltip sr-about-tooltip">
-                  <v-icon size="60" color="#ffffff" class="tooltip_icon-left"
+                  <v-icon size="60" class="tip_icon tooltip_icon-left"
                     >mdi-arrow-u-right-top</v-icon
                   >
-                  <v-icon size="60" color="#ffffff" class="tooltip_icon-right"
+                  <v-icon size="60" class="tip_icon tooltip_icon-right"
                     >mdi-arrow-u-left-bottom</v-icon
                   >
                   <p>We are committed to changing it.</p>
@@ -635,7 +635,7 @@
                       <iconify-icon
                         icon="basil:clock-solid"
                         width="24"
-                        class="me-2"
+                        class="me-2 role_breakdown-icon"
                       ></iconify-icon>
                       ATS Optimized Resume
                     </p>
@@ -643,7 +643,7 @@
                       <iconify-icon
                         icon="basil:comment-solid"
                         width="24"
-                        class="me-2"
+                        class="me-2 role_breakdown-icon"
                       ></iconify-icon>
                       Live Employer Chat
                     </p>
@@ -651,7 +651,7 @@
                       <iconify-icon
                         icon="basil:lightning-alt-solid"
                         width="24"
-                        class="me-2"
+                        class="me-2 role_breakdown-icon"
                       ></iconify-icon>
                       Free Plan Available
                     </p>
@@ -659,7 +659,7 @@
                       <iconify-icon
                         icon="basil:notification-solid"
                         width="24"
-                        class="me-2"
+                        class="me-2 role_breakdown-icon"
                       ></iconify-icon>
                       Real Time Notifications
                     </p>
@@ -718,7 +718,7 @@
                     <iconify-icon
                       icon="basil:user-solid"
                       width="24"
-                      class="me-2"
+                      class="me-2 role_breakdown-icon"
                     ></iconify-icon>
                     Team Collaboration
                   </p>
@@ -726,7 +726,7 @@
                     <iconify-icon
                       icon="basil:video-solid"
                       width="24"
-                      class="me-2"
+                      class="me-2 role_breakdown-icon"
                     ></iconify-icon>
                     Interview Scheduling
                   </p>
@@ -736,7 +736,7 @@
                     <iconify-icon
                       icon="basil:clipboard-alt-solid"
                       width="24"
-                      class="me-2"
+                      class="me-2 role_breakdown-icon"
                     ></iconify-icon>
                     Digital Contracts Creation
                   </p>
@@ -744,16 +744,15 @@
                     <iconify-icon
                       icon="basil:calendar-solid"
                       width="24"
-                      class="me-2"
+                      class="me-2 role_breakdown-icon"
                     ></iconify-icon>
                     Google Calendar Integration
                   </p>
                 </div>
                 <v-btn
-                  color="#083553"
                   size="large"
                   variant="flat"
-                  class="text-capitalize emp_btn"
+                  class="primary_btn text-capitalize emp_btn"
                   @click="dialog = true"
                 >
                   <span class="emp_btn-text">Get Early Access</span>
@@ -790,7 +789,7 @@
                           collapse-icon="mdi-minus"
                           expand-icon="mdi-plus"
                         >
-                          {{ item.title }}
+                          <span class="faq_item-title">{{ item.title }}</span>
                         </v-expansion-panel-title>
                         <v-expansion-panel-text>
                           <p class="faq_text">{{ item.text }}</p>
@@ -801,6 +800,7 @@
                 </v-card>
                 <div class="text-center mt-4" v-if="questions.length > 5">
                   <v-btn
+                    class="text-capitalize"
                     variant="text"
                     @click="showAll = !showAll"
                     append-icon="showAll ? 'mdi-chevron-up' : 'mdi-chevron-down'"
@@ -839,9 +839,9 @@
                   <div class="text-center summary_card">
                     <h3 class="summary_title">
                       Hire Faster
-                      <v-icon size="15" color="#d7263d">mdi-circle</v-icon>
+                      <v-icon size="15" class="summary_icon">mdi-circle</v-icon>
                       Hire Fairer
-                      <v-icon size="15" color="#d7263d">mdi-circle</v-icon>
+                      <v-icon size="15" class="summary_icon">mdi-circle</v-icon>
                       Hire Better
                     </h3>
                     <p class="summary_subtitle">
@@ -849,10 +849,9 @@
                       understood.
                     </p>
                     <v-btn
-                      color="#d7263d"
                       size="large"
                       variant="flat"
-                      class="text-capitalize me-2 mb-2 w-100 w-sm-auto"
+                      class="primary_btn text-capitalize me-2 mb-2 w-100 w-sm-auto"
                       @click="dialog = true"
                     >
                       Get Early Access
@@ -863,10 +862,9 @@
                       ></iconify-icon>
                     </v-btn>
                     <v-btn
-                      color="#F8F8F8"
                       size="large"
                       variant="flat"
-                      class="text-capitalize mb-2 w-100 w-sm-auto"
+                      class="secondary_btn text-capitalize mb-2 w-100 w-sm-auto"
                       @click.prevent="scrollTo('feature_section')"
                     >
                       <iconify-icon
@@ -891,7 +889,7 @@
               >
                 <img
                   class="brand_logo-footer"
-                  :src="isDark ? '/assets/wok-logo-light.svg' : '/assets/wok-logo-dark.svg'"
+                  src="/assets/wok-logo-light.svg"
                   alt="Logo"
                 />
                 <p>
@@ -912,39 +910,34 @@
                     rel="noopener noreferrer"
                   >
                     <div class="media_container">
-                      <img
+                      <iconify-icon
+                        icon="ri:instagram-line"
                         class="media_logo"
-                        src="/assets/instagram-icon-wok.svg"
-                        alt="Instagram"
-                      />
+                      ></iconify-icon>
                     </div>
                   </a>
-
                   <a
                     href="https://www.linkedin.com/in/wok-hq-2448353b8/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <div class="media_container">
-                      <img
+                      <iconify-icon
+                        icon="ri:linkedin-fill"
                         class="media_logo"
-                        src="/assets/linkedin-icon-wok.svg"
-                        alt="LinkedIn"
-                      />
+                      ></iconify-icon>
                     </div>
                   </a>
-
                   <a
                     href="https://x.com/wokhq"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <div class="media_container">
-                      <img
+                      <iconify-icon
+                        icon="ri:twitter-x-fill"
                         class="media_logo"
-                        src="/assets/twitter-logo-wok.svg"
-                        alt="X"
-                      />
+                      ></iconify-icon>
                     </div>
                   </a>
                 </div>

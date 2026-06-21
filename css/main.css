@@ -1,17 +1,19 @@
 /* ============================================================
    GOOGLE FONTS
-   Lexend — headings, display, UI labels
-   DM Sans — body text, paragraphs, inputs
+   Poppins — Headings / Logo
+   Inter — Body / UI Text
+   Playfair Display — Quotes / Statements
    ============================================================ */
-@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@1&display=swap");
 
 /* ============================================================
    CSS CUSTOM PROPERTIES (Design Tokens)
    ============================================================ */
 :root {
   /* --- Typography --- */
-  --font-heading: "Lexend", sans-serif;
-  --font-body: "DM Sans", sans-serif;
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-quote: "Playfair Display", serif;
 
   /* Fluid font scale (rem-based) */
   --text-xs: 0.75rem; /*  12px */
@@ -72,18 +74,18 @@
   --color-primary: #d7263d;
   --color-primary-dark: #a00e21;
   --color-primary-light: #ffccd3;
-  --color-secondary: #083553;
-  --color-accent: #86d6f7;
+  --color-secondary: #003554;
+  --color-accent: #7fdbff;
 
-  --color-bg: #ffffff;
+  --color-bg: #f8fafb;
   --color-bg-subtle: #f8f8f8;
-  --color-surface: #ffffff;
+  --color-surface: #f8fafb;
 
-  --color-text: #1a1a2e;
-  --color-text-muted: #6b7280;
+  --color-text: #02182b;
+  --color-text-muted: #5c6672;
   --color-text-inverse: #ffffff;
 
-  --color-border: #e5e7eb;
+  --color-border: #5c6672;
   --color-border-strong: #9ca3af;
 
   --color-success: #22c55e;
@@ -177,6 +179,7 @@ h4,
 h5,
 h6 {
   overflow-wrap: break-word;
+  color: #02182b;
 }
 
 /* Remove anchor default styles */
@@ -269,6 +272,9 @@ i {
 /* ============================================================
    NAVIGATION
    ============================================================ */
+.navbar {
+  background-color: var(--color-text) !important;
+}
 .brand_logo {
   max-width: 50px;
   height: auto;
@@ -277,9 +283,15 @@ i {
   display: flex;
   align-items: center;
   padding: var(--space-2) var(--space-4);
-  color: var(--color-text);
+  color: var(--color-text-inverse);
   transition: background-color var(--ease-normal);
   cursor: pointer;
+}
+.nav_link:hover {
+  color: var(--color-accent);
+}
+.toggle_icon {
+  color: #86d6f7;
 }
 /* ============================================================
    HERO SECTION
@@ -308,6 +320,9 @@ i {
 .title {
   margin-bottom: var(--space-4);
 }
+.subtitle {
+  color: var(--color-text-muted);
+}
 .hero_btns {
   margin-top: var(--space-10);
 }
@@ -329,6 +344,19 @@ i {
 .review_text {
   width: 20rem;
   line-height: var(--leading-tight);
+  color: var(--color-text-muted);
+}
+.primary_btn {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+.primary_btn:hover {
+  background-color: var(--color-accent);
+  color: var(--color-text);
+}
+.secondary_btn {
+  background-color: var(--color-bg-subtle);
+  color: var(--color-text);
 }
 .chip_review {
   display: inline-flex;
@@ -437,6 +465,10 @@ i {
 .hero_tooltip-two .tooltip_figure,
 .hero_tooltip-two p {
   color: #fff;
+}
+
+.hero_tooltip-one p {
+  color: var(--color-text-muted);
 }
 
 .hero_tooltip-three {
@@ -618,7 +650,7 @@ i {
   }
 }
 .live_indicator-card {
-  background-color: #f5f5f5;
+  background-color: var(--color-bg-subtle);
   padding: var(--space-5);
   border-radius: 10px;
 }
@@ -654,6 +686,9 @@ i {
   font-size: 3.5rem;
   font-weight: 400;
 }
+.bold_text {
+  color: var(--color-accent);
+}
 .row_card {
   padding: 0 1.5rem;
 }
@@ -661,6 +696,7 @@ i {
   color: #fff;
 }
 .count_title {
+  font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: var(--space-3);
@@ -670,17 +706,25 @@ i {
 }
 .live_indicator-card .indicator_icon {
   margin-right: var(--space-2);
+  color: var(--color-accent);
 }
+
 .count_subtitle {
   line-height: 1;
   font-size: 14px;
+}
+.live_indicator-card .count_subtitle {
+  color: var(--color-text-muted);
+}
+.interview .indicator_icon {
+  color: #fff;
 }
 .interview .count_subtitle {
   color: #fff;
   font-size: 14px;
 }
 .about_container-bg {
-  background-color: var(--color-accent);
+  background-color: var(--color-secondary);
   padding: var(--space-16) var(--space-4);
   border-radius: 20px;
 }
@@ -688,13 +732,16 @@ i {
   font-weight: 400;
   max-width: 25rem;
   margin-bottom: var(--space-8);
+  color: var(--color-text-inverse);
 }
 .about_heading {
   font-weight: 600;
   margin-bottom: var(--space-1);
+  color: var(--color-text-inverse);
 }
 .about_subheading {
   margin-bottom: var(--space-6);
+  color: var(--color-text-inverse);
 }
 .about_img-wrapper {
   position: relative;
@@ -714,7 +761,7 @@ i {
 }
 
 .about_tooltip {
-  background-color: var(--color-secondary);
+  background-color: var(--color-accent);
   width: clamp(150px, 45%, 220px);
   padding: var(--space-4);
   border-top-left-radius: 20px;
@@ -737,7 +784,6 @@ i {
   top: 50%;
   transform: translateY(10%);
 }
-
 @media (max-width: 960px) {
   .tooltip_icon-right {
     left: -35px;
@@ -767,8 +813,12 @@ i {
   }
 }
 .about_tooltip p {
-  color: var(--color-text-inverse);
+  color: var(--color-text);
   margin-top: var(--space-4);
+}
+
+.about_tooltip .tip_icon {
+  color: var(--color-text);
 }
 /* ============================================================
    FEATURE SECTION
@@ -786,7 +836,7 @@ i {
   margin-bottom: var(--space-6);
 }
 .feature_icon {
-  color: var(--color-primary);
+  color: var(--color-accent);
 }
 .chip_feature {
   display: inline-flex;
@@ -818,6 +868,7 @@ i {
 }
 .detail_subheading {
   font-size: 14px;
+  color: var(--color-text-muted);
 }
 .feature_number-icon {
   position: absolute;
@@ -1078,6 +1129,10 @@ i {
   border-bottom: 1px solid var(--color-border);
   border-radius: 0;
 }
+.faq_item-title {
+  font-size: var(--text-base);
+  font-family: var(--font-heading);
+}
 .faq_text {
   color: var(--color-text-muted);
 }
@@ -1094,6 +1149,7 @@ i {
   border-radius: 20px;
 }
 .stats_text {
+  font-family: var(--font-heading);
   font-size: clamp(var(--text-xl), 3vw, var(--text-3xl));
   font-weight: 150;
   color: var(--color-text-inverse);
@@ -1158,40 +1214,53 @@ i {
   font-weight: 400;
   margin-bottom: var(--space-4);
 }
+.summary_icon {
+  color: var(--color-accent);
+}
 .summary_subtitle {
   /* width: 25rem; */
   margin: 0 auto;
   margin-bottom: var(--space-10);
+  color: var(--color-text-muted);
 }
 /* ============================================================
    FOOTER SECTION
    ============================================================ */
 #footer_section {
-  border-top: 1px solid var(--color-border);
+  /* border-top: 1px solid var(--color-border); */
+  background-color: var(--color-secondary);
   margin-top: var(--space-16);
 }
 .brand_logo-footer {
   max-width: 80px;
   height: auto;
 }
+#footer_section p {
+  color: #fff;
+}
 .foot_link {
-  color: var(--color-primary);
+  color: var(--color-accent);
   text-decoration: none;
 }
 .foot_link:hover {
   text-decoration: underline;
 }
-.media_logo {
-  width: 20px;
-  height: auto;
-}
 .media_container {
-  padding: 10px;
   width: 40px;
-  border: 1px solid var(--color-text);
+  height: 40px;
+  border: 1px solid #7fdbff;
   margin-left: var(--space-2);
   border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+.media_logo {
+  width: 20px;
+  height: 20px;
+  color: #7fdbff;
+}
+
 /* ============================================================
    WAITLIST DIALOG
    ============================================================ */
@@ -1263,8 +1332,8 @@ i {
 }
 .waitlist_input-btn {
   flex-shrink: 0;
-  background-color: #d7263d;
-  color: #ffffff;
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
   border: none;
   border-radius: var(--radius-full);
   padding: 10px 20px;
@@ -1279,7 +1348,8 @@ i {
   min-width: 90px;
 }
 .waitlist_input-btn:hover:not(:disabled) {
-  background-color: var(--color-primary-dark);
+  background-color: var(--color-accent);
+  color: var(--color-text);
 }
 .waitlist_input-btn:disabled {
   opacity: 0.6;
@@ -1305,13 +1375,13 @@ i {
   --color-surface: #1a1a2e;
 
   --color-text: #f0f0f5;
-  --color-text-muted: #9ca3af;
+  --color-text-muted: #5c6672;
   --color-text-inverse: #ffffff;
 
   --color-border: #2e2e45;
   --color-border-strong: #4b5563;
 
-  --color-accent: #0d2a42;
+  --color-accent: #1e6aa9 !important;
   --color-primary-light: #3a0a12;
   --color-secondary: #1a4a6e;
 }
@@ -1447,8 +1517,7 @@ i {
   bottom: 24px;
   left: 24px;
   max-width: 350px;
-  background: #fff;
-  border: 0.5px solid #e0e0e0;
+  background: var(--color-bg-subtle);
   border-radius: 12px;
   display: flex;
   overflow: hidden;
