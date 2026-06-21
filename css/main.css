@@ -301,8 +301,8 @@ i {
 }
 
 .live_container-bg {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
 }
 .subtle_bg {
   background-color: var(--color-bg-subtle);
@@ -605,46 +605,58 @@ i {
    ABOUT SECTION
    ============================================================ */
 #about_section {
-  padding-top: var(--space-32);
+  padding-top: var(--space-16);
   margin-bottom: var(--space-2);
 }
 .biz_container {
   padding-top: var(--space-16);
   padding-bottom: var(--space-16);
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 1rem;
+  overflow: hidden; /* hide the overflowing duplicate set */
+  width: 100%;
+}
+
+.biz_track {
+  display: flex;
   align-items: center;
-  justify-items: center;
+  gap: 3rem;
+  width: max-content;
+  animation: scroll-left 25s linear infinite;
 }
 
 .biz_img {
   width: 10rem;
   max-width: 100%;
+  flex-shrink: 0; /* prevent squishing */
 }
 
-/* tablet — 3 columns */
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* pause on hover - optional, nice UX touch */
+.biz_container:hover .biz_track {
+  animation-play-state: paused;
+}
+
+/* tablet */
 @media (max-width: 960px) {
   .biz_img {
     width: 8rem;
   }
 }
 
-/* tablet — 3 columns */
 @media (max-width: 768px) {
-  .biz_container {
-    grid-template-columns: repeat(3, 1fr);
-  }
   .biz_img {
     width: 7rem;
   }
 }
 
-/* mobile — 2 columns */
 @media (max-width: 480px) {
-  .biz_container {
-    grid-template-columns: repeat(3, 1fr);
-  }
   .biz_img {
     width: 6rem;
   }
@@ -683,7 +695,7 @@ i {
   color: #fff;
 }
 .live_count {
-  font-size: 3.5rem;
+  font-size: 2rem;
   font-weight: 400;
 }
 .bold_text {
@@ -1516,7 +1528,7 @@ i {
   position: fixed;
   bottom: 24px;
   left: 24px;
-  max-width: 350px;
+  min-width: 350px;
   background: var(--color-bg-subtle);
   border-radius: 12px;
   display: flex;
@@ -1525,10 +1537,10 @@ i {
 }
 .box_avavtar {
   background-color: #083553;
-  width: 90px;
+  width: 50px;
 }
 .box_icon {
-  color: #fff;
+  color: var(--color-accent);
 }
 .sp-img {
   width: 90px;

@@ -181,11 +181,13 @@
             <v-row class="live_container-bg row_card" dense>
               <v-col cols="12" md="3" lg="3" class="live_indicator">
                 <div class="live_indicator-card">
-                  <div class="d-flex justify-end">
+                  <div class="d-flex justify-space-between">
                     <div class="noblink"></div>
                   </div>
-                  <p class="live_count">{{ matchedCount }}</p>
-                  <p class="count_title">Candidates Matched</p>
+                  <p class="live_count"></p>
+                  <p class="count_title">
+                    {{ matchedCount }} Candidates Matched
+                  </p>
                   <div class="d-flex justify-start align-center">
                     <iconify-icon
                       icon="basil:user-outline"
@@ -204,8 +206,10 @@
                   <div class="d-flex justify-end">
                     <div class="blink"></div>
                   </div>
-                  <p class="live_count">{{ interviewCount }}</p>
-                  <p class="count_title">Interviews Happening Now</p>
+                  <p class="live_count"></p>
+                  <p class="count_title">
+                    {{ interviewCount }} Interviews Happening Now
+                  </p>
                   <div class="d-flex justify-start align-center">
                     <iconify-icon
                       icon="basil:video-outline"
@@ -224,8 +228,10 @@
                   <div class="d-flex justify-end">
                     <div class="noblink"></div>
                   </div>
-                  <p class="live_count">{{ employersCount }}</p>
-                  <p class="count_title">New Employers Joined</p>
+                  <p class="live_count"></p>
+                  <p class="count_title">
+                    {{ employersCount }} New Employers Joined
+                  </p>
                   <div class="d-flex justify-start align-center">
                     <iconify-icon
                       icon="basil:bag-outline"
@@ -246,8 +252,8 @@
                   <div class="d-flex justify-end">
                     <div class="noblink"></div>
                   </div>
-                  <p class="live_count">259</p>
-                  <p class="count_title">Total Candidate Joined</p>
+                  <p class="live_count"></p>
+                  <p class="count_title">259 Total Candidate Joined</p>
                   <div class="d-flex justify-start align-center">
                     <iconify-icon
                       icon="basil:user-outline"
@@ -401,16 +407,32 @@
               </v-col>
             </v-row>
           </v-container>
-          <v-container>
+          <v-container fluid>
             <v-row class="live_container-bg">
               <v-col cols="12">
                 <div class="biz_container">
-                  <img class="biz_img" src="/assets/biz1-cc.png" />
-                  <img class="biz_img" src="/assets/biz2-cc.png" />
-                  <img class="biz_img" src="/assets/biz3-cc.png" />
-                  <img class="biz_img" src="/assets/biz4-cc.png" />
-                  <img class="biz_img" src="/assets/biz5-cc.png" />
-                  <img class="biz_img" src="/assets/biz6-cc.png" />
+                  <div class="biz_track">
+                    <!-- original set -->
+                    <img class="biz_img" src="/assets/biz1-cc.png" />
+                    <img class="biz_img" src="/assets/biz2-cc.png" />
+                    <img class="biz_img" src="/assets/biz3-cc.png" />
+                    <img class="biz_img" src="/assets/biz4-cc.png" />
+                    <img class="biz_img" src="/assets/biz5-cc.png" />
+                    <img class="biz_img" src="/assets/biz6-cc.png" />
+                    <img class="biz_img" src="/assets/biz7-cc.png" />
+                    <img class="biz_img" src="/assets/biz8-cc.png" />
+                    <img class="biz_img" src="/assets/biz9-cc.png" />
+                    <!-- duplicate set, so the loop is seamless -->
+                    <img class="biz_img" src="/assets/biz1-cc.png" />
+                    <img class="biz_img" src="/assets/biz2-cc.png" />
+                    <img class="biz_img" src="/assets/biz3-cc.png" />
+                    <img class="biz_img" src="/assets/biz4-cc.png" />
+                    <img class="biz_img" src="/assets/biz5-cc.png" />
+                    <img class="biz_img" src="/assets/biz6-cc.png" />
+                    <img class="biz_img" src="/assets/biz7-cc.png" />
+                    <img class="biz_img" src="/assets/biz8-cc.png" />
+                    <img class="biz_img" src="/assets/biz9-cc.png" />
+                  </div>
                 </div>
               </v-col>
             </v-row>
@@ -471,6 +493,12 @@
                   fair, transparent, and explainable. AI supports the process,
                   but humans stay in control of every hiring decision.
                 </p>
+                <p class="feature_subheading">
+                  <b>Why WOK is different?</b> It’s simple: total transparency.
+                  We provide clearly defined application stages so you always
+                  know exactly where you stand, effectively eliminating the
+                  guesswork from your journey.
+                </p>
                 <div class="subtle_bg chip_feature">
                   <iconify-icon
                     icon="basil:checked-box-solid"
@@ -495,14 +523,15 @@
                   ></iconify-icon>
                   Clear success criteria
                 </div>
-                <p class="mb-4 feature_heading">Why WOK Is Different</p>
-                <p class="detail_heading">
+                <!-- <p class="mb-4 feature_heading">Why WOK is different</p> -->
+                <!-- <p class="detail_heading">
                   You always know where you stand. No more guessing.
-                </p>
-                <p class="detail_subheading">
-                  Every application has clear stages so you know exactly where
-                  you are in the process at every point.
-                </p>
+                </p> -->
+                <!-- <p class="detail_subheading">
+                  Total transparency at every step. With clearly defined
+                  application stages, you’ll always know exactly where you
+                  stand, eliminating the guesswork from your journey.
+                </p> -->
               </v-col>
               <v-col class="px-0" cols="12" lg="6">
                 <!-- <p class="feature_subheading">
@@ -1049,14 +1078,14 @@
               <iconify-icon
                 class="box_icon"
                 icon="basil:bag-outline"
-                width="40"
+                width="24"
               />
             </div>
             <!-- <img src="/assets/popup-bg.png" class="sp-img" /> -->
             <div class="sp-body">
               <p class="sp-text">{{ popupData.role }}.</p>
               <div class="d-flex justify-space-between align-center">
-                <span class="sp-badge">Live</span>
+                <!-- <span class="sp-badge">Live</span> -->
                 <span class="sp-time">{{ popupData.time }}</span>
               </div>
             </div>
