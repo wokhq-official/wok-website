@@ -77,8 +77,8 @@
   --color-secondary: #003554;
   --color-accent: #7fdbff;
 
-  --color-bg: #f8fafb;
-  --color-bg-subtle: #f8f8f8;
+  --color-bg: #f6efeb;
+  --color-bg-subtle: #f8fafb;
   --color-surface: #f8fafb;
 
   --color-text: #02182b;
@@ -296,6 +296,9 @@ i {
 /* ============================================================
    HERO SECTION
    ============================================================ */
+#page_body {
+  background-color: var(--color-bg);
+}
 #hero_section {
   margin-bottom: var(--space-16);
 }
@@ -662,7 +665,7 @@ i {
   }
 }
 .live_indicator-card {
-  background-color: var(--color-bg-subtle);
+  background-color: var(--color-secondary);
   padding: var(--space-5);
   border-radius: 10px;
 }
@@ -687,12 +690,12 @@ i {
 .live_indicator-card .noblink {
   height: 15px;
   width: 15px;
-  background-color: #f5f5f5;
+  background-color: var(--color-secondary);
   border-radius: 100px;
 }
 .interview .live_indicator-card {
   background-color: #d7263d;
-  color: #fff;
+  color: var(--color-text-inverse);
 }
 .live_count {
   font-size: 2rem;
@@ -705,7 +708,7 @@ i {
   padding: 0 1.5rem;
 }
 .interview .live_count {
-  color: #fff;
+  color: var(--color-text-inverse);
 }
 .count_title {
   font-family: var(--font-heading);
@@ -713,8 +716,8 @@ i {
   font-weight: 600;
   margin-bottom: var(--space-3);
 }
-.interview .count_title {
-  color: #fff;
+.count_title {
+  color: var(--color-text-inverse);
 }
 .live_indicator-card .indicator_icon {
   margin-right: var(--space-2);
@@ -729,10 +732,10 @@ i {
   color: var(--color-text-muted);
 }
 .interview .indicator_icon {
-  color: #fff;
+  color: var(--color-text-inverse);
 }
 .interview .count_subtitle {
-  color: #fff;
+  color: var(--color-text-inverse);
   font-size: 14px;
 }
 .about_container-bg {
@@ -982,7 +985,7 @@ i {
   position: absolute;
   bottom: 10%;
   left: 52%;
-  top: auto;
+  top: 50%;
   transform: none;
   z-index: 10;
   /* padding: var(--space-4); */
@@ -1161,7 +1164,7 @@ i {
   border-radius: 20px;
 }
 .stats_text {
-  font-family: var(--font-heading);
+  font-family: var(--font-quote);
   font-size: clamp(var(--text-xl), 3vw, var(--text-3xl));
   font-weight: 150;
   color: var(--color-text-inverse);
@@ -1220,7 +1223,7 @@ i {
    ============================================================ */
 #summary_section {
   margin-top: var(--space-16);
-  margin-bottom: var(--space-16);
+  margin-bottom: var(--space-32);
 }
 .summary_title {
   font-weight: 400;
@@ -1241,7 +1244,7 @@ i {
 #footer_section {
   /* border-top: 1px solid var(--color-border); */
   background-color: var(--color-secondary);
-  margin-top: var(--space-16);
+  /* margin-top: var(--space-16); */
 }
 .brand_logo-footer {
   max-width: 80px;
@@ -1456,9 +1459,9 @@ i {
   background-color: var(--color-bg) !important;
 }
 /* Invert social icons in dark mode */
-[data-theme="dark"] .media_logo {
+/* [data-theme="dark"] .media_logo {
   filter: invert(1);
-}
+} */
 /* ============================================================
    HOW IT WORKS SECTION
    ============================================================ */
@@ -1529,6 +1532,7 @@ i {
   bottom: 24px;
   left: 24px;
   min-width: 350px;
+  margin-right: 24px;
   background: var(--color-bg-subtle);
   border-radius: 12px;
   display: flex;

@@ -176,12 +176,12 @@
           </v-list>
         </v-navigation-drawer>
 
-        <v-main>
+        <v-main id="page_body">
           <v-container fluid id="hero_section">
             <v-row class="live_container-bg row_card" dense>
               <v-col cols="12" md="3" lg="3" class="live_indicator">
                 <div class="live_indicator-card">
-                  <div class="d-flex justify-space-between">
+                  <div class="d-flex justify-end">
                     <div class="noblink"></div>
                   </div>
                   <p class="live_count"></p>
@@ -372,12 +372,12 @@
                 </div>
                 <div class="hero_tooltip-two sr-tooltip-2">
                   <h1 class="tooltip_figure">70%</h1>
-                  <p>less resume screening required</p>
+                  <p>Less resume screening required</p>
                 </div>
                 <div class="hero_tooltip-three sr-tooltip-3">
                   <h1 class="tooltip_figure">3X</h1>
                   <p class="tooltip_text">
-                    higher visibility for qualified candidates
+                    Higher visibility for qualified candidates
                   </p>
                 </div>
 
@@ -457,7 +457,7 @@
                 </div>
                 <img
                   class="about_img"
-                  src="https://res.cloudinary.com/dyljag0oc/image/upload/v1776854282/wok-abt-img_hwj5vk.webp"
+                  src="https://res.cloudinary.com/dyljag0oc/image/upload/v1782115243/abt-wok-img_sselz7.webp"
                   alt="Logo"
                 />
               </v-col>
@@ -864,7 +864,12 @@
           <v-container fluid id="summary_section">
             <v-row class="mx-0 mx-sm-4">
               <v-col cols="12">
-                <v-card max-width="700" class="mx-auto" flat>
+                <v-card
+                  max-width="700"
+                  class="mx-auto"
+                  flat
+                  color="transparent"
+                >
                   <div class="text-center summary_card">
                     <h3 class="summary_title">
                       Hire Faster
@@ -921,7 +926,7 @@
                   src="/assets/wok-logo-light.svg"
                   alt="Logo"
                 />
-                <p>
+                <p class="d-none d-sm-none d-md-flex">
                   &copy; 2026 WOK. All rights reserved.
                   <a
                     href="privacy.html"
@@ -971,10 +976,7 @@
                   </a>
                 </div>
               </v-col>
-              <v-col
-                cols="12"
-                class="d-flex d-sm-flex d-md-none justify-center"
-              >
+              <v-col cols="12" class="d-flex d-sm-flex d-md-none text-center">
                 <p>
                   &copy; 2026 WOK. All rights reserved.
                   <a
