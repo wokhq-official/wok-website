@@ -697,6 +697,29 @@ i {
   background-color: #d7263d;
   color: var(--color-text-inverse);
 }
+/* Brand palette: each of the four live cards gets a distinct color */
+.row_card .live_indicator:nth-child(1) .live_indicator-card {
+  background-color: var(--color-secondary); /* Deep Space Blue #003554 */
+}
+.row_card .live_indicator:nth-child(3) .live_indicator-card {
+  background-color: var(--color-accent); /* Sky Cyan #7fdbff */
+}
+.row_card .live_indicator:nth-child(3) .count_title,
+.row_card .live_indicator:nth-child(3) .count_subtitle,
+.row_card .live_indicator:nth-child(3) .indicator_icon {
+  color: var(--color-text); /* dark text for contrast on Sky Cyan */
+}
+.row_card .live_indicator:nth-child(4) .live_indicator-card {
+  background-color: var(--color-text-muted); /* Steel Slate #5c6672 */
+}
+.row_card .live_indicator:nth-child(4) .count_subtitle {
+  color: rgba(255, 255, 255, 0.85);
+}
+/* Only "Interviews Happening Now" keeps a visible dot; hide it on cards 3 & 4 */
+.row_card .live_indicator:nth-child(3) .noblink,
+.row_card .live_indicator:nth-child(4) .noblink {
+  background-color: transparent;
+}
 .live_count {
   font-size: 2rem;
   font-weight: 400;
