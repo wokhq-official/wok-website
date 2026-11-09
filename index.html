@@ -1237,7 +1237,7 @@
             result.value = "";
             try {
               const response = await fetch(
-                "https://dev.wokhq.com/v1/admin/waitlist",
+                "https://wok-backend-cba.onrender.com/v1/admin/waitlist",
               );
               const data = await response.json();
               result.value = `Fetched: "${data.title}"`;
@@ -1260,7 +1260,7 @@
 
             try {
               const response = await fetch(
-                "https://dev.wokhq.com/v1/admin/waitlist",
+                "https://wok-backend-cba.onrender.com/v1/admin/waitlist",
                 {
                   method: "POST",
                   headers: { "Content-Type": "application/json" },
